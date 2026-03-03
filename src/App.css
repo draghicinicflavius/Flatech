@@ -21,6 +21,16 @@ h1 {
   font-size: 1.8rem; /* Dimensiune optimă pentru mobil */
   margin-bottom: 1rem;
 }
+.glass-card {
+  background: rgba(255, 255, 255, 0.1); /* Transparent alb */
+  backdrop-filter: blur(10px); /* Efectul de încețoșare spate */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  color: white; /* Arată super pe fundal închis sau colorat */
+}
 
 /* Media Query pentru Desktop - aici facem ajustările pentru ecrane mari */
 @media (min-width: 768px) {
