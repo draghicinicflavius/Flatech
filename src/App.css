@@ -65,9 +65,9 @@ body, html {
 
 /* 4. Pagina Principală (Hero) */
 .hero-logo {
-  max-width: 80%; /* Mobile First */
-  height: auto;
-  margin-bottom: 20px;
+  max-width: 280px;
+  border-radius: 15px; /* Îi rotunjim puțin colțurile să pară mai modern */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* O umbră fină să-i dea adâncime */
 }
 
 @media (min-width: 768px) {
