@@ -21,6 +21,57 @@ h1 {
   font-size: 1.8rem; /* Dimensiune optimă pentru mobil */
   margin-bottom: 1rem;
 }
+/* Reset și Fundal */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; /* Fundal negru conform logo-ului tău */
+}
+
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Aici punem logo-ul pe fundal, dar controlat */
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/logo-firma.jpeg');
+  background-size: contain; /* Sau 'cover' dacă vrei să umple tot spatele */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.nav-logo {
+  height: 50px; /* Limităm înălțimea să nu mai fie uriașă */
+  width: auto;
+  padding: 15px;
+}
+
+.hero-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cta-button {
+  background-color: #99ff00; /* Verdele din logo-ul tău */
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
 .glass-card {
   background: rgba(255, 255, 255, 0.1); /* Transparent alb */
   backdrop-filter: blur(10px); /* Efectul de încețoșare spate */
