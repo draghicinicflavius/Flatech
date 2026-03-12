@@ -5,43 +5,50 @@ import Footer from './Footer'
 function App() {
   return (
     <div className="app-container">
-      {/* 1. Navbar */}
       <nav className="navbar">
-        <div className="nav-logo-small">FLATECH</div>
+        <div className="nav-logo-text">FLATECH</div>
         <ul className="nav-links">
           <li><a href="#acasa">Acasa</a></li>
           <li><a href="#oferte">Oferte</a></li>
-          <li><a href="#portofoliu">Portofoliu</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      {/* 2. Hero Section (Pagina Principala) */}
-      <section id="acasa" className="section hero-light">
-        <img src="/logo-firma.jpeg" alt="Logo FLATECH" className="hero-logo" />
+      {/* SECTIUNEA HERO */}
+      <section id="acasa" className="section hero-section">
+        <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo" />
         <h1>Construim prezența ta online</h1>
-        <p>Site-uri moderne pentru afaceri locale.</p>
+        <p>Soluții dedicate afacerii tale.</p>
+        <a href="#contact" className="cta-button">Solicită Oferta</a>
       </section>
 
-      {/* 3. Oferte */}
-      <section id="oferte" className="section light-bg">
-        <h2>Oferte Servicii</h2>
+      {/* SECTIUNEA OFERTE */}
+      <section id="oferte" className="section offers-section">
+        <h2>Servicii Profesionale</h2>
         <div className="offers-grid">
-          <div className="offer-item">Meniu Digital</div>
-          <div className="offer-item">Site Prezentare</div>
-          <div className="offer-item">Mentenanță</div>
+          <div className="offer-card">
+            <div className="icon">📱</div>
+            <h3>Meniuri Digitale</h3>
+            <p>Soluții dedicate pentru cafenele și restaurante (Sistem QR).</p>
+          </div>
+          <div className="offer-card">
+            <div className="icon">💻</div>
+            <h3>Site-uri Prezentare</h3>
+            <p>Design personalizat pentru firme mici și medii locale.</p>
+          </div>
+          <div className="offer-card highlight">
+            <div className="icon">🚀</div>
+            <h3>Mentenanță & SEO</h3>
+            <p>Pagină online modernă cu mentenanță inclusă la <strong>PREȚ ACCESIBIL</strong>.</p>
+          </div>
         </div>
       </section>
 
-      {/* 4. Formular Contact */}
-      <section id="contact" className="section white-bg">
-        <h2>Solicită un site</h2>
-        <form className="contact-form">
-          <input type="text" placeholder="Numele tău" required />
-          <input type="tel" placeholder="Număr de telefon" required />
-          <textarea placeholder="Ce fel de site dorești?"></textarea>
-          <button type="submit" className="submit-btn">Trimite solicitarea</button>
-        </form>
+      {/* SECTIUNEA CONTACT (SCHELET) */}
+      <section id="contact" className="section contact-section">
+        <h2>Contactează-ne</h2>
+        <p>Drăghici Nicolae Flavius: 0751094127</p>
+        {/* Aici vom pune formularul data viitoare */}
       </section>
 
       <Footer />
