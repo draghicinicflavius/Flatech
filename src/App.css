@@ -123,8 +123,8 @@ html, body {
 
 /* HERO & LOGO ANIMAT */
 .hero-logo {
-  max-width: 280px;
-  margin-bottom: 20px;
+  max-width: 380px; /* Am mărit logo-ul semnificativ */
+  margin-bottom: 30px;
   border-radius: 15px;
 }
 
@@ -136,6 +136,32 @@ html, body {
 @keyframes breathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto 30px;
+  line-height: 1.6;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-badges span {
+  background: var(--dark-bg);
+  color: var(--neon-green);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* GLOW BUTTONS */
@@ -156,9 +182,17 @@ html, body {
 }
 
 /* PORTOFOLIU */
-.portfolio-grid {
-  display: grid; grid-template-columns: 1fr; gap: 30px;
-  width: 100%; max-width: 1000px; margin-top: 40px;
+.portfolio-grid-3 {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 30px;
+  width: 100%; 
+  max-width: 1200px; 
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) { 
+  .portfolio-grid-3 { grid-template-columns: repeat(3, 1fr); } 
 }
 
 .portfolio-card {
@@ -168,10 +202,19 @@ html, body {
 
 .portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-.mockup-placeholder {
-  height: 200px; background: #ddd; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center; color: #888;
+.portfolio-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+  border: 1px solid #ddd;
   margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.02);
 }
 
 .live-link {
@@ -179,7 +222,47 @@ html, body {
   font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--neon-green);
 }
 
-@media (min-width: 768px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+/* --- PREȚURI --- */
+.pricing-section {
+  background-color: var(--light-bg);
+}
+
+.pricing-banner {
+  background: var(--dark-bg);
+  color: white;
+  padding: 50px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--neon-green);
+  max-width: 800px;
+  width: 100%;
+  margin: 30px auto 0;
+  box-shadow: 0 10px 30px rgba(153, 255, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-tag {
+  font-size: 1.2rem;
+  margin: 25px 0;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight-price {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--neon-green);
+  display: block;
+  text-shadow: 0 0 20px rgba(153, 255, 0, 0.4);
+  line-height: 1.2;
+}
+
+.pricing-banner p {
+  color: #aaa;
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+}
 
 /* CONTACT - DARK MODE & NEON */
 .dark-mode {
@@ -228,119 +311,38 @@ html, body {
   .glass-form { flex: 1; }
   .social-links { flex: 1; }
 }
-/* --- STILURI NOI PENTRU PORTOFOLIU --- */
-.portfolio-grid-3 {
-  display: grid; 
-  grid-template-columns: 1fr; 
-  gap: 30px;
-  width: 100%; 
-  max-width: 1200px; 
-  margin-top: 40px;
-}
 
-@media (min-width: 768px) { 
-  .portfolio-grid-3 { grid-template-columns: repeat(3, 1fr); } 
-}
+/* =========================================
+   SCROLL REVEAL ANIMATIONS (MAGIA BIDIRECȚIONALĂ)
+   ========================================= */
 
-.portfolio-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover; /* Taie imaginea perfect fără să o deformeze */
-  object-position: top; /* Arată partea de sus a site-ului */
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-  transition: transform 0.3s;
-}
-
-.portfolio-card:hover .portfolio-img {
-  transform: scale(1.02); /* Mărește puțin poza când pui mouse-ul */
-}
-
-/* --- STILURI NOI PENTRU PREȚURI --- */
-.pricing-section {
-  background-color: var(--light-bg);
-}
-
-.pricing-banner {
-  background: var(--dark-bg);
-  color: white;
-  padding: 50px 20px;
-  border-radius: 20px;
-  border: 2px solid var(--neon-green);
-  max-width: 800px;
-  width: 100%;
-  margin: 30px auto 0;
-  box-shadow: 0 10px 30px rgba(153, 255, 0, 0.15);
-  position: relative;
-  overflow: hidden;
-}
-
-.price-tag {
-  font-size: 1.2rem;
-  margin: 25px 0;
-  color: #ccc;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.highlight-price {
-  font-size: 4rem;
-  font-weight: 900;
-  color: var(--neon-green);
-  display: block;
-  text-shadow: 0 0 20px rgba(153, 255, 0, 0.4);
-  line-height: 1.2;
-}
-
-.pricing-banner p {
-  color: #aaa;
-  margin-bottom: 35px;
-  font-size: 1.1rem;
-}
-/* --- ÎMBUNĂTĂȚIRI HERO SECTION --- */
-.hero-logo {
-  max-width: 380px; /* Am mărit logo-ul semnificativ (era 280px) */
-  margin-bottom: 30px;
-}
-
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: #555;
-  max-width: 700px;
-  margin: 10px auto 30px;
-  line-height: 1.6;
-}
-
-.hero-badges {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.hero-badges span {
-  background: var(--dark-bg);
-  color: var(--neon-green);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* --- SCROLL REVEAL ANIMATIONS (MAGIA) --- */
+/* 1. Animația clasică: Apare de JOS */
 .reveal {
-  opacity: 0; /* Ascuns la început */
-  transform: translateY(50px); /* Lăsat mai jos cu 50px */
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Animație super fină */
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
-/* Când se adaugă clasa .active via JavaScript (când dai scroll) */
-.reveal.active {
-  opacity: 1; /* Devine vizibil */
-  transform: translateY(0); /* Urcă la poziția originală */
+/* 2. Animația din STÂNGA (Apare din lateral stânga) */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-150px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+/* 3. Animația din DREAPTA (Apare din lateral dreapta) */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(150px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+/* Când JavaScript adaugă clasa .active, toate revin la poziția zero și devin vizibile */
+.reveal.active, 
+.reveal-left.active, 
+.reveal-right.active {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 /* Facem cartonașele să apară cu o mică întârziere unul după altul */
