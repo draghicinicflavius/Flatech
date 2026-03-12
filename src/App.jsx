@@ -7,16 +7,20 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // MAGIA PENTRU SCROLL ANIMATIONS (Apare elementele treptat)
+ // MAGIA PENTRU SCROLL (Acum funcționează și în sus, și în jos)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+          entry.target.classList.add('active'); // Apare când dai scroll în jos
+        } else {
+          entry.target.classList.remove('active'); // DISPARE când dai scroll în sus
         }
       });
     }, { threshold: 0.1 });
 
-    const hiddenElements = document.querySelectorAll('.reveal');
+    // Căutăm toate tipurile de animații
+    const hiddenElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
     hiddenElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
@@ -78,15 +82,15 @@ function App() {
         
         <div className="portfolio-grid-3">
           
-          {/* Site 1 */}
-          <div className="portfolio-card reveal">
+          {/* Site 1 - Vine din STÂNGA */}
+          <div className="portfolio-card reveal-left">
             <img src="/topmontajacoperis.png" alt="Site Top Acoperis" className="portfolio-img" />
             <h3>Top Acoperiș Montaj</h3>
             <p>Site de prezentare servicii</p>
             <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
           
-          {/* Site 2 */}
+          {/* Site 2 - Vine de JOS (Centru) */}
           <div className="portfolio-card reveal">
             <img src="/site2.png" alt="Site 2" className="portfolio-img" />
             <h3>Proiectul deGoicea</h3>
@@ -94,8 +98,8 @@ function App() {
             <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
-          {/* Site 3 */}
-          <div className="portfolio-card reveal">
+          {/* Site 3 - Vine din DREAPTA */}
+          <div className="portfolio-card reveal-right">
             <img src="/site3.png" alt="Site 3" className="portfolio-img" />
             <h3>Meniu Digital Cafenele/Restaurante</h3>
             <p>Meniu / Cod QR</p>
