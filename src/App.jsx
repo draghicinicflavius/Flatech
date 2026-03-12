@@ -78,7 +78,7 @@ function App() {
       {/* 4. SECȚIUNEA PORTOFOLIU (Modificările tale păstrate + animații) */}
       <section id="portofoliu" className="section portfolio-section">
         <h2 className="reveal">Proiecte Finalizate</h2>
-        <p className="subtitle reveal">Nu vindem doar idei, iată site-urile noastre live:</p>
+        <p className="subtitle reveal">Nu vindem doar idei, iată câteva din site-urile noastre live:</p>
         
         <div className="portfolio-grid-3">
           
