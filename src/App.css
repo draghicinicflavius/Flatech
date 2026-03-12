@@ -8,12 +8,19 @@
 
 * { scroll-behavior: smooth; box-sizing: border-box; }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
   background-color: var(--light-bg);
   color: var(--text-dark);
+  overflow-x: hidden; /* Taie orice depășește ecranul în lateral */
+  width: 100vw; /* Forțează lățimea exactă a ecranului */
+}
+
+.app-container {
   overflow-x: hidden;
+  width: 100%;
 }
 
 .section {
@@ -58,19 +65,20 @@ body {
 
 .nav-links a:hover { color: #7acc00; }
 
-/* Mobile Menu */
+/* Mobile Menu - MODIFICAT PENTRU A REPARA BARA NEAGRĂ */
 @media (max-width: 768px) {
   .hamburger { display: block; }
   .nav-links {
-    position: absolute; top: 60px; right: -100%;
+    position: fixed; top: 60px; right: 0;
+    transform: translateX(100%); /* Îl scoatem din ecran fără să afecteze lățimea */
     flex-direction: column; background: white;
     width: 250px; height: 100vh;
     padding-top: 50px;
     box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    transition: 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
   }
-  .nav-links.open { right: 0; }
-  .nav-links li { margin-bottom: 30px; }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links li { margin-bottom: 30px; text-align: center; }
 }
 
 /* BUTON PLUTITOR APEL (Pulse Animation) */
@@ -98,7 +106,6 @@ body {
   max-width: 280px;
   margin-bottom: 20px;
   border-radius: 15px;
-  /* FARA UMBRA: am sters box-shadow */
 }
 
 /* Animație subtilă de respirație pentru logo */
