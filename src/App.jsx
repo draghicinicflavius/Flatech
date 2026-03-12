@@ -61,8 +61,8 @@ function App() {
           <div className="portfolio-card">
              {/* Trebuie să pui o poză numită site2.png în folderul public */}
             <img src="/site2.png" alt="Site 2" className="portfolio-img" />
-            <h3>Nume Site 2</h3>
-            <p>Meniu / Prezentare</p>
+            <h3>Proiectul deGoicea</h3>
+            <p>Portofoliu fotografi/formatii</p>
             <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
@@ -70,8 +70,8 @@ function App() {
           <div className="portfolio-card">
              {/* Trebuie să pui o poză numită site3.png în folderul public */}
             <img src="/site3.png" alt="Site 3" className="portfolio-img" />
-            <h3>Nume Site 3</h3>
-            <p>Meniu / Prezentare</p>
+            <h3>Meniu Digital Cafelene/Restaurante</h3>
+            <p>Meniu / Cod QR</p>
             <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
@@ -83,7 +83,7 @@ function App() {
           <h3>Pachete de lansare pentru afacerea ta</h3>
           <div className="price-tag">
             Prețuri începând de la <br/>
-            <span className="highlight-price">199 €</span>
+            <span className="highlight-price">100 €</span>
           </div>
           <p>Fiecare afacere este unică. Obține un site profesional, optimizat și gata să atragă clienți, fără costuri ascunse.</p>
           <a href="#contact" className="glow-btn">Cere o ofertă personalizată</a>
