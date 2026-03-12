@@ -15,7 +15,8 @@ html, body {
   background-color: var(--light-bg);
   color: var(--text-dark);
   overflow-x: hidden; /* Taie orice depășește ecranul în lateral */
-  width: 100vw; /* Forțează lățimea exactă a ecranului */
+  width: 100%; /* Schimbat din 100vw în 100% */
+  max-width: 100%; /* Forțează lățimea exactă a ecranului */
 }
 
 .app-container {
