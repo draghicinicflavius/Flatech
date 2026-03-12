@@ -6,25 +6,40 @@
   --text-light: #f4f4f4;
 }
 
-* { scroll-behavior: smooth; box-sizing: border-box; }
+/* 1. RESET NUCLEAR - Forțăm marginile să nu depășească ecranul sub nicio formă */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  scroll-behavior: smooth;
+}
 
+/* 2. BLOCĂM HTML-ul și BODY-ul */
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important; /* Tăiere absolută pe lateral */
   font-family: 'Inter', sans-serif;
   background-color: var(--light-bg);
   color: var(--text-dark);
-  overflow-x: hidden; /* Taie orice depășește ecranul în lateral */
-  width: 100%; /* Schimbat din 100vw în 100% */
-  max-width: 100%; /* Forțează lățimea exactă a ecranului */
 }
 
-.app-container {
-  overflow-x: hidden;
+/* 3. BLOCĂM DIV-UL INVIZIBIL REACT (#root) */
+#root {
   width: 100%;
+  overflow-x: hidden;
+}
+
+/* 4. SECURIZĂM CONTAINERELE PRINCIPALE */
+.app-container {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .section {
+  width: 100%; /* Împiedică secțiunea să lărgească pagina */
   padding: 100px 20px;
   display: flex;
   flex-direction: column;
@@ -32,6 +47,10 @@ html, body {
   text-align: center;
   min-height: 80vh;
 }
+
+/* =========================================
+   DE AICI ÎN JOS DESIGN-UL TĂU A RĂMAS INTACT
+   ========================================= */
 
 /* NAVBAR & HAMBURGER */
 .navbar {
@@ -208,4 +227,74 @@ html, body {
   .contact-wrapper { flex-direction: row; align-items: flex-start; }
   .glass-form { flex: 1; }
   .social-links { flex: 1; }
+}
+/* --- STILURI NOI PENTRU PORTOFOLIU --- */
+.portfolio-grid-3 {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 30px;
+  width: 100%; 
+  max-width: 1200px; 
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) { 
+  .portfolio-grid-3 { grid-template-columns: repeat(3, 1fr); } 
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Taie imaginea perfect fără să o deformeze */
+  object-position: top; /* Arată partea de sus a site-ului */
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.02); /* Mărește puțin poza când pui mouse-ul */
+}
+
+/* --- STILURI NOI PENTRU PREȚURI --- */
+.pricing-section {
+  background-color: var(--light-bg);
+}
+
+.pricing-banner {
+  background: var(--dark-bg);
+  color: white;
+  padding: 50px 20px;
+  border-radius: 20px;
+  border: 2px solid var(--neon-green);
+  max-width: 800px;
+  width: 100%;
+  margin: 30px auto 0;
+  box-shadow: 0 10px 30px rgba(153, 255, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.price-tag {
+  font-size: 1.2rem;
+  margin: 25px 0;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight-price {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--neon-green);
+  display: block;
+  text-shadow: 0 0 20px rgba(153, 255, 0, 0.4);
+  line-height: 1.2;
+}
+
+.pricing-banner p {
+  color: #aaa;
+  margin-bottom: 35px;
+  font-size: 1.1rem;
 }

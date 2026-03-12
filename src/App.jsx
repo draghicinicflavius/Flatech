@@ -40,23 +40,53 @@ function App() {
         <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
       </section>
 
-      {/* 4. SECȚIUNEA PORTOFOLIU (Site-uri Live) */}
+      {/* 4. SECȚIUNEA PORTOFOLIU (Cele 3 Site-uri) */}
       <section id="portofoliu" className="section portfolio-section">
-        <h2>Proiecte Funcționale</h2>
+        <h2>Proiecte Finalizate</h2>
         <p className="subtitle">Nu vindem doar idei, iată site-urile noastre live:</p>
         
-        <div className="portfolio-grid">
+        {/* Aici ai cele 3 cartonașe */}
+        <div className="portfolio-grid-3">
+          
+          {/* Site 1 */}
           <div className="portfolio-card">
-            <div className="mockup-placeholder">Imagine Site 1</div>
-            <h3>Meniu Digital Restaurant</h3>
-            <a href="#" className="live-link">🌐 Deschide Live</a>
+            {/* Trebuie să pui o poză numită site1.png în folderul public */}
+            <img src="/site1.png" alt="Site Top Acoperis" className="portfolio-img" />
+            <h3>Top Acoperiș Montaj</h3>
+            <p>Site de prezentare servicii</p>
+            <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
           
+          {/* Site 2 */}
           <div className="portfolio-card">
-            <div className="mockup-placeholder">Imagine Site 2</div>
-            <h3>Site Prezentare Service Auto</h3>
-            <a href="#" className="live-link">🌐 Deschide Live</a>
+             {/* Trebuie să pui o poză numită site2.png în folderul public */}
+            <img src="/site2.png" alt="Site 2" className="portfolio-img" />
+            <h3>Nume Site 2</h3>
+            <p>Meniu / Prezentare</p>
+            <a href="#" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
+
+          {/* Site 3 */}
+          <div className="portfolio-card">
+             {/* Trebuie să pui o poză numită site3.png în folderul public */}
+            <img src="/site3.png" alt="Site 3" className="portfolio-img" />
+            <h3>Nume Site 3</h3>
+            <p>Meniu / Prezentare</p>
+            <a href="#" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
+          </div>
+
+        </div>
+      </section>
+      <section id="preturi" className="section pricing-section">
+        <h2>Oferte Transparente</h2>
+        <div className="pricing-banner">
+          <h3>Pachete de lansare pentru afacerea ta</h3>
+          <div className="price-tag">
+            Prețuri începând de la <br/>
+            <span className="highlight-price">199 €</span>
+          </div>
+          <p>Fiecare afacere este unică. Obține un site profesional, optimizat și gata să atragă clienți, fără costuri ascunse.</p>
+          <a href="#contact" className="glow-btn">Cere o ofertă personalizată</a>
         </div>
       </section>
 
