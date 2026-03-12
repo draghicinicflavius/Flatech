@@ -198,6 +198,7 @@ html, body {
 .portfolio-card {
   background: #f9f9f9; border-radius: 15px; padding: 20px;
   transition: 0.3s;
+  border: 1px solid var(--dark-bg);
 }
 
 .portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }

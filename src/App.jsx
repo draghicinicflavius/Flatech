@@ -57,7 +57,7 @@ function App() {
       <section id="acasa" className="section hero-section">
         {/* Logo-ul are acum animația de 'breathing' și clasa 'reveal' */}
         <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo breathing-logo reveal" />
-        <h1 className="reveal">Construim prezența ta online</h1>
+        <h1 className="reveal">Construim prezența ta online!</h1>
         
         {/* Text nou și captivant */}
         <p className="hero-subtitle reveal">
