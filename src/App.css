@@ -1,135 +1,19 @@
-/* 1. Definiții de bază (Culorile tale oficiale) */
 :root {
-  --primary-green: #99ff00; /* Verdele din logo */
-  --bg-light: #ffffff;
-  --bg-gray: #f8f9fa;
+  --neon-green: #99ff00;
+  --dark-bg: #111111;
+  --light-bg: #ffffff;
   --text-dark: #1a1a1a;
+  --text-light: #f4f4f4;
 }
 
-* {
-  box-sizing: border-box;
-  scroll-behavior: smooth; /* Face ca scroll-ul din Navbar să fie fluid */
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-/* 2. Navigația (Sticky Navbar) */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  z-index: 1000;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* 3. Structura Secțiunilor (Povestea) */
-.section {
-  padding: 100px 20px 60px 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.white-bg { background-color: #ffffff; }
-.gray-bg { background-color: var(--bg-gray); }
-
-/* 4. Pagina Principală (Hero) */
-.hero-logo {
-  max-width: 280px;
-  border-radius: 15px; /* Îi rotunjim puțin colțurile să pară mai modern */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* O umbră fină să-i dea adâncime */
-}
-
-@media (min-width: 768px) {
-  .hero-logo { max-width: 400px; }
-  .nav-links { gap: 30px; }
-}
-
-/* 5. Formularul de Contact */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 500px;
-  margin-top: 30px;
-}
-
-.contact-form input, 
-.contact-form textarea {
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #fff;
-}
-
-.submit-btn {
-  background-color: var(--primary-green);
-  color: #000;
-  border: none;
-  padding: 18px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.submit-btn:hover {
-  background-color: #88e600;
-  transform: translateY(-2px);
-}
-
-/* 6. Footer */
-footer {
-  padding: 40px 20px;
-  background: #111;
-  color: #fff;
-  text-align: center;
-}
-:root {
-  --primary: #99ff00; /* Verdele tău specific */
-  --dark: #1a1a1a;
-  --light: #f4f4f4;
-}
-
-* { scroll-behavior: smooth; }
+* { scroll-behavior: smooth; box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: white;
-  color: var(--dark);
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  overflow-x: hidden;
 }
 
 .section {
@@ -141,81 +25,179 @@ body {
   min-height: 80vh;
 }
 
-/* NAVBAR */
+/* NAVBAR & HAMBURGER */
 .navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
+  top: 0; width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
-  padding: 15px 25px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  align-items: center;
+  padding: 15px 30px;
   z-index: 1000;
-  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-logo-text { font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
 }
 
 .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
+  list-style: none; display: flex; gap: 20px; margin: 0;
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: var(--dark);
-  font-weight: bold;
-  font-size: 0.9rem;
+  text-decoration: none; color: var(--text-dark); font-weight: 600;
+  transition: color 0.3s;
 }
 
-/* HERO */
-.hero-logo {
-  max-width: 250px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+.nav-links a:hover { color: #7acc00; }
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  .nav-links {
+    position: absolute; top: 60px; right: -100%;
+    flex-direction: column; background: white;
+    width: 250px; height: 100vh;
+    padding-top: 50px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: 0.4s ease-in-out;
+  }
+  .nav-links.open { right: 0; }
+  .nav-links li { margin-bottom: 30px; }
 }
 
-.cta-button {
-  background: var(--primary);
+/* BUTON PLUTITOR APEL (Pulse Animation) */
+.floating-call-btn {
+  position: fixed; bottom: 30px; right: 30px;
+  background-color: var(--neon-green);
   color: black;
-  text-decoration: none;
-  padding: 15px 30px;
-  border-radius: 8px;
-  font-weight: bold;
-  margin-top: 20px;
-  transition: 0.3s;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 1.8rem; text-decoration: none;
+  z-index: 1000;
+  box-shadow: 0 0 15px var(--neon-green);
+  animation: pulse-neon 2s infinite;
 }
 
-/* OFFERS GRID */
-.offers-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 40px;
+@keyframes pulse-neon {
+  0% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
+  50% { transform: scale(1.1); box-shadow: 0 0 25px var(--neon-green); }
+  100% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
 }
 
-.offer-card {
-  background: var(--light);
-  padding: 30px;
+/* HERO & LOGO ANIMAT */
+.hero-logo {
+  max-width: 280px;
+  margin-bottom: 20px;
   border-radius: 15px;
+  /* FARA UMBRA: am sters box-shadow */
+}
+
+/* Animație subtilă de respirație pentru logo */
+.breathing-logo {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* GLOW BUTTONS */
+.glow-btn {
+  background: var(--neon-green);
+  color: black;
+  text-decoration: none; border: none;
+  padding: 15px 35px; border-radius: 8px;
+  font-weight: 800; font-size: 1.1rem;
+  margin-top: 20px; cursor: pointer;
+  box-shadow: 0 0 15px rgba(153, 255, 0, 0.6);
   transition: 0.3s;
 }
 
-.offer-card.highlight {
-  border: 2px solid var(--primary);
-  background: white;
+.glow-btn:hover {
+  box-shadow: 0 0 30px var(--neon-green);
+  transform: translateY(-3px);
 }
 
-.offer-card:hover {
-  transform: translateY(-10px);
+/* PORTOFOLIU */
+.portfolio-grid {
+  display: grid; grid-template-columns: 1fr; gap: 30px;
+  width: 100%; max-width: 1000px; margin-top: 40px;
 }
+
+.portfolio-card {
+  background: #f9f9f9; border-radius: 15px; padding: 20px;
+  transition: 0.3s;
+}
+
+.portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+.mockup-placeholder {
+  height: 200px; background: #ddd; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; color: #888;
+  margin-bottom: 15px;
+}
+
+.live-link {
+  display: inline-block; margin-top: 10px; color: var(--dark-bg);
+  font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--neon-green);
+}
+
+@media (min-width: 768px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+
+/* CONTACT - DARK MODE & NEON */
+.dark-mode {
+  background-color: var(--dark-bg); color: var(--text-light);
+}
+
+.contact-wrapper {
+  display: flex; flex-direction: column; gap: 40px;
+  width: 100%; max-width: 900px; margin-top: 40px;
+}
+
+.glass-form {
+  display: flex; flex-direction: column; gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px; border-radius: 15px;
+  border: 1px solid rgba(153, 255, 0, 0.2);
+}
+
+.glass-form input, .glass-form select {
+  padding: 15px; border-radius: 8px; border: none;
+  background: rgba(255, 255, 255, 0.1); color: white;
+  font-size: 1rem;
+}
+
+.glass-form input::placeholder { color: #aaa; }
+.glass-form select option { color: black; }
+
+.social-links {
+  display: flex; flex-direction: column; gap: 15px; align-items: center;
+}
+
+.social-btn {
+  display: block; width: 100%; max-width: 300px;
+  padding: 15px; border-radius: 8px; font-weight: bold;
+  text-decoration: none; color: white; transition: 0.3s;
+}
+
+.whatsapp { background: #25D366; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.facebook { background: #1877F2; }
+
+.social-btn:hover { transform: scale(1.05); }
 
 @media (min-width: 768px) {
-  .offers-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .contact-wrapper { flex-direction: row; align-items: flex-start; }
+  .glass-form { flex: 1; }
+  .social-links { flex: 1; }
 }
