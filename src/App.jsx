@@ -63,7 +63,7 @@ function App() {
             <img src="/site2.png" alt="Site 2" className="portfolio-img" />
             <h3>Nume Site 2</h3>
             <p>Meniu / Prezentare</p>
-            <a href="#" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
+            <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
           {/* Site 3 */}
@@ -72,7 +72,7 @@ function App() {
             <img src="/site3.png" alt="Site 3" className="portfolio-img" />
             <h3>Nume Site 3</h3>
             <p>Meniu / Prezentare</p>
-            <a href="#" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
+            <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
         </div>
