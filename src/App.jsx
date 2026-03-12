@@ -51,7 +51,7 @@ function App() {
           {/* Site 1 */}
           <div className="portfolio-card">
             {/* Trebuie să pui o poză numită site1.png în folderul public */}
-            <img src="/site1.png" alt="Site Top Acoperis" className="portfolio-img" />
+            <img src="public/topmontajacoperis.png" alt="Site Top Acoperis" className="portfolio-img" />
             <h3>Top Acoperiș Montaj</h3>
             <p>Site de prezentare servicii</p>
             <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
