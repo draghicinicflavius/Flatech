@@ -1,10 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Footer from './Footer'
 
 function App() {
   // Starea pentru meniul hamburger
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // MAGIA PENTRU SCROLL ANIMATIONS (Apare elementele treptat)
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const hiddenElements = document.querySelectorAll('.reveal');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="app-container">
@@ -22,6 +38,8 @@ function App() {
         <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <li><a href="#acasa" onClick={() => setIsMenuOpen(false)}>Acasă</a></li>
           <li><a href="#portofoliu" onClick={() => setIsMenuOpen(false)}>Portofoliu Live</a></li>
+          {/* Am adăugat link-ul spre secțiunea nouă de Prețuri */}
+          <li><a href="#preturi" onClick={() => setIsMenuOpen(false)}>Prețuri</a></li>
           <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
         </ul>
       </nav>
@@ -31,26 +49,37 @@ function App() {
         📞
       </a>
 
-      {/* 3. SECȚIUNEA HERO (Logo Animat) */}
+      {/* 3. SECȚIUNEA HERO (Logo Animat, Text nou și Insigne) */}
       <section id="acasa" className="section hero-section">
-        {/* Logo-ul are acum animația de 'breathing' și NU are umbră */}
-        <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo breathing-logo" />
-        <h1>Construim prezența ta online</h1>
-        <p>Aducem afacerea ta în era digitală cu soluții de top.</p>
-        <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
+        {/* Logo-ul are acum animația de 'breathing' și clasa 'reveal' */}
+        <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo breathing-logo reveal" />
+        <h1 className="reveal">Construim prezența ta online</h1>
+        
+        {/* Text nou și captivant */}
+        <p className="hero-subtitle reveal">
+          Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
+          Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
+        </p>
+
+        {/* Insigne de încredere adăugate pentru un aspect 'Viu' */}
+        <div className="hero-badges reveal">
+          <span>✅ Design Premium</span>
+          <span>✅ Optimizare SEO</span>
+          <span>✅ Suport Inclus</span>
+        </div>
+
+        <a href="#portofoliu" className="glow-btn reveal">Vezi ce am lucrat</a>
       </section>
 
-      {/* 4. SECȚIUNEA PORTOFOLIU (Cele 3 Site-uri) */}
+      {/* 4. SECȚIUNEA PORTOFOLIU (Modificările tale păstrate + animații) */}
       <section id="portofoliu" className="section portfolio-section">
-        <h2>Proiecte Finalizate</h2>
-        <p className="subtitle">Nu vindem doar idei, iată site-urile noastre live:</p>
+        <h2 className="reveal">Proiecte Finalizate</h2>
+        <p className="subtitle reveal">Nu vindem doar idei, iată site-urile noastre live:</p>
         
-        {/* Aici ai cele 3 cartonașe */}
         <div className="portfolio-grid-3">
           
           {/* Site 1 */}
-          <div className="portfolio-card">
-            {/* Trebuie să pui o poză numită site1.png în folderul public */}
+          <div className="portfolio-card reveal">
             <img src="/topmontajacoperis.png" alt="Site Top Acoperis" className="portfolio-img" />
             <h3>Top Acoperiș Montaj</h3>
             <p>Site de prezentare servicii</p>
@@ -58,8 +87,7 @@ function App() {
           </div>
           
           {/* Site 2 */}
-          <div className="portfolio-card">
-             {/* Trebuie să pui o poză numită site2.png în folderul public */}
+          <div className="portfolio-card reveal">
             <img src="/site2.png" alt="Site 2" className="portfolio-img" />
             <h3>Proiectul deGoicea</h3>
             <p>Portofoliu fotografi/formatii</p>
@@ -67,23 +95,24 @@ function App() {
           </div>
 
           {/* Site 3 */}
-          <div className="portfolio-card">
-             {/* Trebuie să pui o poză numită site3.png în folderul public */}
+          <div className="portfolio-card reveal">
             <img src="/site3.png" alt="Site 3" className="portfolio-img" />
-            <h3>Meniu Digital Cafelene/Restaurante</h3>
+            <h3>Meniu Digital Cafenele/Restaurante</h3>
             <p>Meniu / Cod QR</p>
             <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
         </div>
       </section>
+
+      {/* SECȚIUNEA PREȚURI */}
       <section id="preturi" className="section pricing-section">
-        <h2>Oferte Transparente</h2>
-        <div className="pricing-banner">
+        <h2 className="reveal">Oferte Transparente</h2>
+        <div className="pricing-banner reveal">
           <h3>Pachete de lansare pentru afacerea ta</h3>
           <div className="price-tag">
             Prețuri începând de la <br/>
-            <span className="highlight-price">100 €</span>
+            <span className="highlight-price">199 €</span>
           </div>
           <p>Fiecare afacere este unică. Obține un site profesional, optimizat și gata să atragă clienți, fără costuri ascunse.</p>
           <a href="#contact" className="glow-btn">Cere o ofertă personalizată</a>
@@ -92,16 +121,16 @@ function App() {
 
       {/* 5. SECȚIUNEA CONTACT & FORMULAR (Neon Dark Mode) */}
       <section id="contact" className="section contact-section dark-mode">
-        <h2>Începe Proiectul Tău</h2>
-        <p>Lasă-ne datele și te sunăm noi cât mai curând.</p>
+        <h2 className="reveal">Începe Proiectul Tău</h2>
+        <p className="reveal">Lasă-ne datele și te sunăm noi cât mai curând.</p>
         
         <div className="contact-wrapper">
-          {/* Formularul readus */}
-          <form className="contact-form glass-form">
+          <form className="contact-form glass-form reveal">
             <input type="text" placeholder="Numele tău" required />
             <input type="tel" placeholder="Numărul de telefon" required />
-            <select required>
-              <option value="" disabled selected>Ce tip de site dorești?</option>
+            {/* Corectare sintaxă React pentru select: defaultValue în loc de selected */}
+            <select required defaultValue="">
+              <option value="" disabled>Ce tip de site dorești?</option>
               <option value="prezentare">Site de Prezentare (Firme/Servicii)</option>
               <option value="meniu">Meniu Digital (Horeca)</option>
               <option value="magazin">Magazin Online</option>
@@ -111,7 +140,7 @@ function App() {
           </form>
 
           {/* Linkuri Social Media & WhatsApp */}
-          <div className="social-links">
+          <div className="social-links reveal">
             <p>Sau scrie-ne direct pe:</p>
             <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">💬 WhatsApp</a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
