@@ -52,18 +52,25 @@ html, body {
    DE AICI ÎN JOS DESIGN-UL TĂU A RĂMAS INTACT
    ========================================= */
 
-/* NAVBAR & HAMBURGER */
+/* NAVBAR "FLOATING GLASS" - NOU */
 .navbar {
   position: fixed;
-  top: 0; width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  top: 15px; /* Îl dezlipim de tavan */
+  left: 50%;
+  transform: translateX(-50%); /* Îl centrăm perfect */
+  width: calc(100% - 40px); /* Lăsăm spațiu pe margini */
+  max-width: 1160px; /* Să nu fie prea lung pe PC */
+  background: rgba(255, 255, 255, 0.75); /* Transparent */
+  backdrop-filter: blur(15px); /* Efectul de sticlă mată */
+  -webkit-backdrop-filter: blur(15px); /* Pentru iPhone/Safari */
+  border-radius: 20px; /* Colțuri foarte rotunjite */
+  border: 1px solid rgba(153, 255, 0, 0.3); /* O dungă foarte fină de neon pe margine */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 12px 25px;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Umbră fină sub el */
 }
 
 .nav-logo-text { font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;}
@@ -121,9 +128,51 @@ html, body {
   100% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
 }
 
+/* FUNDAL TECH GRID ȘI GLOW PENTRU PRIMA PAGINĂ - NOU */
+.hero-section {
+  position: relative;
+  background-color: var(--light-bg);
+  /* Aici desenăm rețeaua subtilă */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px; /* Dimensiunea pătrățelelor */
+  overflow: hidden;
+}
+
+/* Aura de neon care pulsează în spatele logo-ului */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: var(--neon-green);
+  border-radius: 50%;
+  filter: blur(120px); /* O facem extrem de difuză */
+  opacity: 0.15; /* Să nu deranjeze ochii */
+  z-index: 0;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulse-blob 6s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes pulse-blob {
+  0% { transform: translateX(-50%) scale(0.9); opacity: 0.1; }
+  100% { transform: translateX(-50%) scale(1.2); opacity: 0.25; }
+}
+
+/* Ne asigurăm că textul și logo-ul stau PESTE aura de neon */
+.hero-section * {
+  z-index: 1;
+  position: relative;
+}
+
 /* HERO & LOGO ANIMAT */
 .hero-logo {
   max-width: 380px; /* Am mărit logo-ul semnificativ */
+  margin-top: 60px; /* Împingem logo-ul puțin mai jos de sub meniu */
   margin-bottom: 30px;
   border-radius: 15px;
 }
