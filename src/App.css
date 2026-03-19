@@ -1,6 +1,6 @@
 :root {
   --neon-green: #99ff00;
-  --dark-bg: #111111;
+  --dark-bg: #1a1a1a; /* Un gri foarte închis, elegant */
   --light-bg: #ffffff;
   --text-dark: #1a1a1a;
   --text-light: #f4f4f4;
@@ -52,7 +52,7 @@ html, body {
    DE AICI ÎN JOS DESIGN-UL TĂU A RĂMAS INTACT
    ========================================= */
 
-/* NAVBAR "FLOATING GLASS" - NOU */
+/* NAVBAR "FLOATING GLASS" */
 .navbar {
   position: fixed;
   top: 15px; /* Îl dezlipim de tavan */
@@ -79,6 +79,7 @@ html, body {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
+  z-index: 1001; /* Ca să putem închide meniul, butonul trebuie să fie deasupra */
 }
 
 .nav-links {
@@ -92,20 +93,43 @@ html, body {
 
 .nav-links a:hover { color: #7acc00; }
 
-/* Mobile Menu - MODIFICAT PENTRU A REPARA BARA NEAGRĂ */
+/* Mobile Menu - REPARAT: Ascuns complet și colorat gri închis */
 @media (max-width: 768px) {
   .hamburger { display: block; }
+  
   .nav-links {
-    position: fixed; top: 60px; right: 0;
-    transform: translateX(100%); /* Îl scoatem din ecran fără să afecteze lățimea */
-    flex-direction: column; background: white;
-    width: 250px; height: 100vh;
-    padding-top: 50px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    transition: transform 0.4s ease-in-out;
+    position: fixed; 
+    top: 0; 
+    right: -300px; /* Ascuns 100% în afara ecranului, fără nicio umbră care să apară */
+    transform: none; 
+    flex-direction: column; 
+    background: var(--dark-bg); /* Fundalul gri închis/antracit */
+    width: 250px; 
+    height: 100vh;
+    padding-top: 100px; /* Spațiu ca să nu se lovească de butonul X */
+    box-shadow: -5px 0 25px rgba(0,0,0,0.4);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animație glisantă premium */
   }
-  .nav-links.open { transform: translateX(0); }
-  .nav-links li { margin-bottom: 30px; text-align: center; }
+  
+  .nav-links.open { 
+    right: 0; /* Apare în ecran DOAR când dai click */
+  }
+  
+  .nav-links li { 
+    margin-bottom: 30px; 
+    text-align: center; 
+  }
+
+  /* Schimbăm culoarea scrisului în meniul pe mobil ca să se vadă pe gri închis */
+  .nav-links a {
+    color: var(--text-light); /* Scris alb/gri deschis */
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-links a:hover {
+    color: var(--neon-green); /* Culoarea ta semnătură când pui degetul */
+  }
 }
 
 /* BUTON PLUTITOR APEL (Pulse Animation) */
@@ -128,15 +152,14 @@ html, body {
   100% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
 }
 
-/* FUNDAL TECH GRID ȘI GLOW PENTRU PRIMA PAGINĂ - NOU */
+/* FUNDAL TECH GRID ȘI GLOW PENTRU PRIMA PAGINĂ */
 .hero-section {
   position: relative;
   background-color: var(--light-bg);
-  /* Aici desenăm rețeaua subtilă */
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px; /* Dimensiunea pătrățelelor */
+  background-size: 40px 40px;
   overflow: hidden;
 }
 
@@ -148,8 +171,8 @@ html, body {
   height: 350px;
   background: var(--neon-green);
   border-radius: 50%;
-  filter: blur(120px); /* O facem extrem de difuză */
-  opacity: 0.15; /* Să nu deranjeze ochii */
+  filter: blur(120px); 
+  opacity: 0.15; 
   z-index: 0;
   top: 20%;
   left: 50%;
@@ -163,7 +186,6 @@ html, body {
   100% { transform: translateX(-50%) scale(1.2); opacity: 0.25; }
 }
 
-/* Ne asigurăm că textul și logo-ul stau PESTE aura de neon */
 .hero-section * {
   z-index: 1;
   position: relative;
@@ -171,8 +193,8 @@ html, body {
 
 /* HERO & LOGO ANIMAT */
 .hero-logo {
-  max-width: 380px; /* Am mărit logo-ul semnificativ */
-  margin-top: 60px; /* Împingem logo-ul puțin mai jos de sub meniu */
+  max-width: 380px; 
+  margin-top: 60px; 
   margin-bottom: 30px;
   border-radius: 15px;
 }
@@ -366,28 +388,24 @@ html, body {
    SCROLL REVEAL ANIMATIONS (MAGIA BIDIRECȚIONALĂ)
    ========================================= */
 
-/* 1. Animația clasică: Apare de JOS */
 .reveal {
   opacity: 0;
   transform: translateY(100px);
   transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
-/* 2. Animația din STÂNGA (Apare din lateral stânga) */
 .reveal-left {
   opacity: 0;
   transform: translateX(-150px);
   transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
-/* 3. Animația din DREAPTA (Apare din lateral dreapta) */
 .reveal-right {
   opacity: 0;
   transform: translateX(150px);
   transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
-/* Când JavaScript adaugă clasa .active, toate revin la poziția zero și devin vizibile */
 .reveal.active, 
 .reveal-left.active, 
 .reveal-right.active {
@@ -395,7 +413,6 @@ html, body {
   transform: translate(0, 0);
 }
 
-/* Facem cartonașele să apară cu o mică întârziere unul după altul */
 .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
 .portfolio-card:nth-child(2) { transition-delay: 0.2s; }
 .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
