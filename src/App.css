@@ -526,45 +526,202 @@ html, body {
 }
 
 /* --- PREȚURI --- */
-.pricing-section {
-  background-color: var(--light-bg);
+/* =========================================
+   GRID PREȚURI (3 PACHETE)
+   ========================================= */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 30px;
 }
 
-.pricing-banner {
+@media (min-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center; /* Pachetul din mijloc va fi mai înalt */
+  }
+}
+
+.pricing-card {
+  background: var(--light-bg);
+  border: 1px solid #eaeaea;
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Evidențierea pachetului Business */
+.pricing-card.popular {
   background: var(--dark-bg);
   color: white;
-  padding: 50px 20px;
-  border-radius: 20px;
   border: 2px solid var(--neon-green);
-  max-width: 800px;
-  width: 100%;
-  margin: 30px auto 0;
-  box-shadow: 0 10px 30px rgba(153, 255, 0, 0.15);
-  position: relative;
-  overflow: hidden;
+  transform: scale(1.05); /* Îl facem un pic mai mare pe PC */
+  box-shadow: 0 15px 40px rgba(153, 255, 0, 0.15);
+  z-index: 2;
 }
 
-.price-tag {
-  font-size: 1.2rem;
-  margin: 25px 0;
-  color: #ccc;
+@media (max-width: 991px) {
+  .pricing-card.popular { transform: scale(1); }
+}
+
+.popular-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neon-green);
+  color: var(--dark-bg);
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.85rem;
   text-transform: uppercase;
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.pricing-card.popular h3 { color: white; }
+
+.price {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.pricing-card.popular .price { color: var(--neon-green); }
+
+.price span {
+  font-size: 1.5rem;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+.price-desc {
+  color: #777;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  height: 40px; /* Aliniem textele */
+}
+
+.pricing-card.popular .price-desc { color: #ccc; }
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 35px;
+  text-align: left;
+}
+
+.pricing-card ul li {
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.pricing-card.popular ul li { color: var(--text-light); }
+
+.pricing-card ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--neon-green);
+  font-weight: bold;
+}
+
+/* =========================================
+   BANNER GOOGLE ADS (Extra Service)
+   ========================================= */
+.ads-banner {
+  display: flex;
+  flex-direction: column;
+  background: var(--dark-bg);
+  border-radius: 15px;
+  margin-top: 60px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .ads-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+  }
+}
+
+.ads-content {
+  flex: 2;
+  text-align: left;
+}
+
+.ads-content h3 {
+  font-size: 1.6rem;
+  margin: 0 0 15px 0;
+}
+
+.ads-content p {
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ads-price-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .ads-price-box {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+  }
+}
+
+.ads-tag {
+  color: #aaa;
+  text-transform: uppercase;
+  font-size: 0.85rem;
   letter-spacing: 1px;
 }
 
-.highlight-price {
-  font-size: 4rem;
+.ads-cost {
+  font-size: 3rem;
   font-weight: 900;
-  color: var(--neon-green);
-  display: block;
-  text-shadow: 0 0 20px rgba(153, 255, 0, 0.4);
-  line-height: 1.2;
+  color: white;
+  margin: 5px 0;
 }
 
-.pricing-banner p {
-  color: #aaa;
-  margin-bottom: 35px;
-  font-size: 1.1rem;
+.ads-note {
+  color: #666;
+  font-size: 0.8rem;
 }
 
 /* CONTACT - DARK MODE & NEON */

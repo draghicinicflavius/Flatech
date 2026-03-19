@@ -172,16 +172,67 @@ function App() {
       </section>
 
       {/* SECȚIUNEA PREȚURI */}
+      {/* SECȚIUNEA PREȚURI */}
       <section id="preturi" className="section pricing-section">
-        <h2 className="reveal">Oferte Transparente</h2>
-        <div className="pricing-banner reveal">
-          <h3>Pachete de lansare pentru afacerea ta</h3>
-          <div className="price-tag">
-            Prețuri începând de la <br/>
-            <span className="highlight-price">199 €</span>
+        <h2 className="reveal">Pachete Web Design</h2>
+        <p className="subtitle reveal">Transparență totală. Alege pachetul potrivit pentru stadiul afacerii tale.</p>
+        
+        <div className="pricing-grid reveal">
+          {/* Pachet 1: Start */}
+          <div className="pricing-card">
+            <h3>Pachetul Start</h3>
+            <div className="price"><span>€</span>199</div>
+            <p className="price-desc">Perfect pentru o prezență rapidă online.</p>
+            <ul>
+              <li>Landing Page (1 Pagină lungă)</li>
+              <li>Design Modern & Responsive</li>
+              <li>Formular Contact / WhatsApp</li>
+              <li>Optimizare viteză (WebP)</li>
+            </ul>
+            <a href="#contact" className="outline-btn small-btn">Alege Pachetul</a>
           </div>
-          <p>Fiecare afacere este unică. Obține un site profesional, optimizat și gata să atragă clienți, fără costuri ascunse.</p>
-          <a href="#contact" className="glow-btn">Cere o ofertă personalizată</a>
+
+          {/* Pachet 2: Business (Cel mai vândut, evidențiat) */}
+          <div className="pricing-card popular">
+            <div className="popular-badge">Cel Mai Vândut</div>
+            <h3>Pachetul Business</h3>
+            <div className="price"><span>€</span>450</div>
+            <p className="price-desc">Ideal pentru firme, clinici și profesioniști.</p>
+            <ul>
+              <li>Site Multi-Pagină (Acasă, Despre, Servicii)</li>
+              <li>Secțiune Portofoliu / Galerie</li>
+              <li>Optimizare SEO de bază</li>
+              <li>Integrare Google Analytics</li>
+            </ul>
+            <a href="#contact" className="glow-btn small-btn">Alege Pachetul</a>
+          </div>
+
+          {/* Pachet 3: Premium / Custom */}
+          <div className="pricing-card">
+            <h3>Custom Software</h3>
+            <div className="price"><span>€</span>800<span>+</span></div>
+            <p className="price-desc">Aplicații web și funcționalități complexe.</p>
+            <ul>
+              <li>Magazin Online / Meniu Digital</li>
+              <li>Backend / Bază de date (Java/Node)</li>
+              <li>Sistem conturi / Sincronizare live</li>
+              <li>Design PWA instalabil pe mobil</li>
+            </ul>
+            <a href="#contact" className="outline-btn small-btn">Cere Ofertă</a>
+          </div>
+        </div>
+
+        {/* NOU: SECȚIUNEA GOOGLE ADS (Add-on) */}
+        <div className="ads-banner reveal">
+          <div className="ads-content">
+            <h3 style={{ color: "var(--neon-green)" }}>🚀 Vrei clienți din prima zi?</h3>
+            <p>Nu aștepta ca lumea să te găsească din întâmplare. Îți configurez o campanie profesională de <strong>Google Ads</strong>, gata să îți aducă telefoane și mesaje imediat.</p>
+          </div>
+          <div className="ads-price-box">
+            <span className="ads-tag">Setup Campanie</span>
+            <span className="ads-cost">50 €</span>
+            <span className="ads-note">*plată unică, fără abonament lunar</span>
+          </div>
         </div>
       </section>
 
