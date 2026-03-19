@@ -6,6 +6,27 @@
   --text-light: #f4f4f4;
 }
 
+/* MAGIA PENTRU DARK MODE - Inversăm variabilele */
+body.dark-theme {
+  --light-bg: #121212; /* Fundalul alb devine negru-mat */
+  --text-dark: #f4f4f4; /* Textul negru devine alb-deschis */
+  --dark-bg: #1a1a1a; /* Panourile negre rămân negre/gri închis */
+}
+
+/* Butonul de schimbare a temei din meniu */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
 /* 1. RESET NUCLEAR - Forțăm marginile să nu depășească ecranul sub nicio formă */
 *, *::before, *::after {
   box-sizing: border-box !important;

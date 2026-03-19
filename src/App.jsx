@@ -5,6 +5,18 @@ import Footer from './Footer'
 function App() {
   // Starea pentru meniul hamburger
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // NOU: Starea pentru Dark Mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // NOU: MAGIA PENTRU DARK MODE
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [isDarkMode]);
 
   // MAGIA PENTRU SCROLL (Acum funcționează și în sus, și în jos)
   useEffect(() => {
@@ -28,13 +40,28 @@ function App() {
   return (
     <div className="app-container">
       
-      {/* 1. NAVBAR CU HAMBURGER */}
+      {/* 1. NAVBAR CU HAMBURGER ȘI BUTON TEMĂ */}
       <nav className="navbar">
         <div className="nav-logo-text">FLATECH</div>
         
-        {/* Butonul Hamburger */}
-        <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? '✖' : '☰'}
+        {/* Grupăm Butonul de Dark Mode și Hamburgerul ca să stea frumos împreună */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          
+          {/* NOU: Butonul Dark Mode */}
+          <button 
+            className="theme-toggle" 
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            title="Schimbă tema"
+            style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', padding: 0 }}
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
+
+          {/* Butonul Hamburger (nemodificat) */}
+          <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? '✖' : '☰'}
+          </div>
+          
         </div>
 
         {/* Linkurile din meniu */}
@@ -148,7 +175,7 @@ function App() {
 
         </div>
 
-        {/* NOU: PROIECTUL SPECIAL (Aplicația Web Full-Stack) */}
+        {/* PROIECTUL SPECIAL (Aplicația Web Full-Stack) */}
         <div className="featured-project reveal">
           <div className="featured-image-wrapper">
             {/* Aici pui screenshot-ul aplicației de pe telefon */}
@@ -171,7 +198,6 @@ function App() {
         </div>
       </section>
 
-      {/* SECȚIUNEA PREȚURI */}
       {/* SECȚIUNEA PREȚURI */}
       <section id="preturi" className="section pricing-section">
         <h2 className="reveal">Pachete Web Design</h2>
@@ -222,7 +248,7 @@ function App() {
           </div>
         </div>
 
-        {/* NOU: SECȚIUNEA GOOGLE ADS (Add-on) */}
+        {/* SECȚIUNEA GOOGLE ADS (Add-on) */}
         <div className="ads-banner reveal">
           <div className="ads-content">
             <h3 style={{ color: "var(--neon-green)" }}>🚀 Vrei clienți din prima zi?</h3>
