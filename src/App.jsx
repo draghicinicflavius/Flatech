@@ -6,8 +6,7 @@ function App() {
   // Starea pentru meniul hamburger
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // MAGIA PENTRU SCROLL ANIMATIONS (Apare elementele treptat)
- // MAGIA PENTRU SCROLL (Acum funcționează și în sus, și în jos)
+  // MAGIA PENTRU SCROLL (Acum funcționează și în sus, și în jos)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -53,9 +52,9 @@ function App() {
         📞
       </a>
 
-      {/* 3. SECȚIUNEA HERO (Logo Animat, Text nou și Insigne) */}
+      {/* 3. SECȚIUNEA HERO (Logo Rotund, Text nou, Insigne și 2 Butoane) */}
       <section id="acasa" className="section hero-section">
-        {/* Logo-ul are acum animația de 'breathing' și clasa 'reveal' */}
+        {/* Logo-ul are acum clasa pentru a fi rotund perfect */}
         <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo breathing-logo reveal" />
         <h1 className="reveal">Construim prezența ta online!</h1>
         
@@ -72,7 +71,48 @@ function App() {
           <span>✅ Suport Inclus</span>
         </div>
 
-        <a href="#portofoliu" className="glow-btn reveal">Vezi ce am lucrat</a>
+        {/* Butoanele Noi */}
+        <div className="hero-buttons reveal">
+          <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
+          <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
+        </div>
+      </section>
+
+      {/* SECȚIUNE NOUĂ: STATISTICI (Bulele animate) */}
+      <section className="section stats-section">
+        <div className="stats-grid">
+          
+          {/* Bulina 1 */}
+          <div className="stat-box reveal-left">
+            <svg viewBox="0 0 100 100" className="circular-chart">
+              <path className="circle-bg" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
+              <path className="circle-fill fill-100" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
+              <text x="50" y="55" className="percentage">100%</text>
+            </svg>
+            <h3>Clienți Mulțumiți</h3>
+          </div>
+
+          {/* Bulina 2 */}
+          <div className="stat-box reveal">
+            <svg viewBox="0 0 100 100" className="circular-chart">
+              <path className="circle-bg" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
+              <path className="circle-fill fill-85" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
+              <text x="50" y="55" className="percentage">35+</text>
+            </svg>
+            <h3>Proiecte Finalizate</h3>
+          </div>
+
+          {/* Bulina 3 */}
+          <div className="stat-box reveal-right">
+            <svg viewBox="0 0 100 100" className="circular-chart">
+              <path className="circle-bg" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
+              <path className="circle-fill fill-100" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
+              <text x="50" y="55" className="percentage">24/7</text>
+            </svg>
+            <h3>Suport Tehnic</h3>
+          </div>
+
+        </div>
       </section>
 
       {/* 4. SECȚIUNEA PORTOFOLIU (Modificările tale păstrate + animații) */}

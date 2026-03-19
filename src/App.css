@@ -192,11 +192,113 @@ html, body {
 }
 
 /* HERO & LOGO ANIMAT */
+/* HERO & LOGO ANIMAT - Acum ROTUND PERFECT */
 .hero-logo {
-  max-width: 380px; 
-  margin-top: 60px; 
-  margin-bottom: 30px;
-  border-radius: 15px;
+  width: 220px;
+  height: 220px;
+  object-fit: contain; /* Păstrează logo-ul întreg înăuntru */
+  background: white; /* Îi dă un fundal curat */
+  border-radius: 50%; /* Acesta face cercul */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Umbră rotundă premium */
+  margin-top: 80px; 
+  margin-bottom: 20px;
+}
+/* BUTOANELE NOI PE PRIMA PAGINĂ */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.outline-btn {
+  background: transparent;
+  color: var(--text-dark);
+  text-decoration: none; border: 2px solid var(--neon-green);
+  padding: 15px 35px; border-radius: 8px;
+  font-weight: 800; font-size: 1.1rem;
+  cursor: pointer; transition: 0.3s;
+}
+
+.outline-btn:hover {
+  background: var(--neon-green);
+  box-shadow: 0 0 20px rgba(153, 255, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+/* --- SECȚIUNEA STATISTICI (BULE CARE SE UMPLU) --- */
+.stats-section {
+  min-height: auto;
+  padding: 40px 20px 80px;
+}
+
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.stat-box {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circular-chart {
+  display: block;
+  margin: 0 auto 15px;
+  width: 130px;
+  height: 130px;
+  filter: drop-shadow(0px 5px 10px rgba(153, 255, 0, 0.15));
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee; /* Gri foarte deschis pe fundal */
+  stroke-width: 6;
+}
+
+.circle-fill {
+  fill: none;
+  stroke: var(--neon-green);
+  stroke-width: 6;
+  stroke-linecap: round;
+  /* Lungimea totală a conturului */
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 251.2; /* Pleacă de la 0 (ascuns) */
+  transition: stroke-dashoffset 2.5s cubic-bezier(0.5, 0, 0.2, 1); /* Animație lentă și fluidă */
+}
+
+/* Aici se întâmplă magia când dai scroll (.active) */
+.reveal.active .fill-100,
+.reveal-left.active .fill-100,
+.reveal-right.active .fill-100 {
+  stroke-dashoffset: 0; /* Se umple complet la 100% */
+}
+
+.reveal.active .fill-85 {
+  stroke-dashoffset: 40; /* Se oprește la ~85% pentru un efect real */
+}
+
+.percentage {
+  fill: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  text-anchor: middle;
+}
+
+.stat-box h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Animație subtilă de respirație pentru logo */
