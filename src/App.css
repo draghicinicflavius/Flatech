@@ -374,6 +374,107 @@ html, body {
   border: 1px solid var(--dark-bg);
 }
 
+/* --- PROIECTUL SPECIAL (APLICAȚIA WEB) --- */
+.featured-project {
+  display: flex;
+  flex-direction: column;
+  background: var(--dark-bg); /* O punem pe fundal închis ca să spargă monotonia */
+  border-radius: 20px;
+  margin-top: 60px;
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  border: 1px solid rgba(153, 255, 0, 0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .featured-project {
+    flex-direction: row; /* Pe PC le punem una lângă alta */
+    align-items: center;
+  }
+}
+
+.featured-image-wrapper {
+  flex: 1;
+  padding: 30px;
+  background: rgba(255,255,255,0.02);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-img {
+  width: 100%;
+  max-width: 300px; /* Perfectă pentru un screenshot de telefon vertical */
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.4s;
+}
+
+.featured-project:hover .featured-img {
+  transform: translateY(-5px);
+}
+
+.featured-content {
+  flex: 1.5;
+  padding: 40px 30px;
+  text-align: left;
+  color: var(--text-light);
+}
+
+.featured-badge {
+  background: rgba(153, 255, 0, 0.1);
+  color: var(--neon-green);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featured-content h3 {
+  font-size: 1.8rem;
+  margin: 15px 0 20px;
+  color: white;
+}
+
+.featured-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.featured-list li {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #bbb;
+  position: relative;
+  padding-left: 25px;
+}
+
+/* Bifă neon pentru fiecare element din listă */
+.featured-list li::before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--neon-green);
+  font-size: 1rem;
+}
+
+.featured-list strong {
+  color: white;
+}
+
+.small-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  display: inline-block;
+}
+
 .portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
 .portfolio-img {

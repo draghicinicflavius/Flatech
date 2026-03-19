@@ -40,7 +40,7 @@ function App() {
         {/* Linkurile din meniu */}
         <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
           <li><a href="#acasa" onClick={() => setIsMenuOpen(false)}>Acasă</a></li>
-          <li><a href="#portofoliu" onClick={() => setIsMenuOpen(false)}>Portofoliu Live</a></li>
+          <li><a href="#portofoliu" onClick={() => setIsMenuOpen(false)}>Portofoliu</a></li>
           {/* Am adăugat link-ul spre secțiunea nouă de Prețuri */}
           <li><a href="#preturi" onClick={() => setIsMenuOpen(false)}>Prețuri</a></li>
           <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
@@ -115,7 +115,7 @@ function App() {
         </div>
       </section>
 
-      {/* 4. SECȚIUNEA PORTOFOLIU (Modificările tale păstrate + animații) */}
+      {/* 4. SECȚIUNEA PORTOFOLIU (Site-uri + Proiectul Special) */}
       <section id="portofoliu" className="section portfolio-section">
         <h2 className="reveal">Proiecte Finalizate</h2>
         <p className="subtitle reveal">Nu vindem doar idei, iată câteva din site-urile noastre live:</p>
@@ -146,6 +146,28 @@ function App() {
             <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
 
+        </div>
+
+        {/* NOU: PROIECTUL SPECIAL (Aplicația Web Full-Stack) */}
+        <div className="featured-project reveal">
+          <div className="featured-image-wrapper">
+            {/* Aici pui screenshot-ul aplicației de pe telefon */}
+            <img src="/aplicatie-versuri.png" alt="Aplicație Cor" className="featured-img" />
+          </div>
+          
+          <div className="featured-content">
+            <span className="featured-badge">Aplicație Web Custom (Full-Stack)</span>
+            <h3>Sistem Live Multi-User</h3>
+            
+            <ul className="featured-list">
+              <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor coriștilor instant.</li>
+              <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API) și căutare text care ignoră diacriticele.</li>
+              <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă cu semnătura "by Flavius Draghici" și zoom salvat local.</li>
+              <li><strong>Sistem de Roluri:</strong> Acces diferențiat Admin / Dirijor / Corist, susținut de un backend solid în Java.</li>
+            </ul>
+            
+            <a href="#" target="_blank" rel="noreferrer" className="glow-btn small-btn">Vezi Detalii</a>
+          </div>
         </div>
       </section>
 
