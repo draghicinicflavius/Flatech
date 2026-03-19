@@ -93,42 +93,70 @@ html, body {
 
 .nav-links a:hover { color: #7acc00; }
 
-/* Mobile Menu - REPARAT: Ascuns complet și colorat gri închis */
+/* Mobile Menu - COMPLET REFĂCUT (Premium Tech Dropdown) */
 @media (max-width: 768px) {
-  .hamburger { display: block; }
+  .hamburger { 
+    display: block; 
+    z-index: 1001; 
+  }
   
   .nav-links {
-    position: fixed; 
-    top: 0; 
-    right: -300px; /* Ascuns 100% în afara ecranului, fără nicio umbră care să apară */
-    transform: none; 
-    flex-direction: column; 
-    background: var(--dark-bg); /* Fundalul gri închis/antracit */
-    width: 250px; 
-    height: 100vh;
-    padding-top: 100px; /* Spațiu ca să nu se lovească de butonul X */
-    box-shadow: -5px 0 25px rgba(0,0,0,0.4);
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Animație glisantă premium */
+    position: absolute;
+    top: 115%; /* Pică fix sub pastila meniului */
+    left: 0;
+    width: 100%; /* Ia exact lățimea pastilei albe */
+    height: auto;
+    flex-direction: column;
+    background: rgba(20, 20, 20, 0.95); /* Sticlă fumurie/antracit foarte elegantă */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 20px;
+    border: 1px solid rgba(153, 255, 0, 0.3); /* Ramă fină verde neon */
+    padding: 25px 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    
+    /* Animație modernă de drop-down dinamic */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .nav-links.open { 
-    right: 0; /* Apare în ecran DOAR când dai click */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
   }
   
   .nav-links li { 
-    margin-bottom: 30px; 
+    margin-bottom: 15px; 
     text-align: center; 
   }
 
-  /* Schimbăm culoarea scrisului în meniul pe mobil ca să se vadă pe gri închis */
-  .nav-links a {
-    color: var(--text-light); /* Scris alb/gri deschis */
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+  .nav-links li:last-child {
+    margin-bottom: 0;
   }
 
-  .nav-links a:hover {
-    color: var(--neon-green); /* Culoarea ta semnătură când pui degetul */
+  /* Link-urile din meniu - Stilizare Bombă */
+  .nav-links a {
+    color: var(--text-light);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    padding: 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  /* Efectul la apăsare pe telefon */
+  .nav-links a:hover, 
+  .nav-links a:active {
+    color: var(--dark-bg);
+    background: var(--neon-green);
+    box-shadow: 0 0 20px rgba(153, 255, 0, 0.4);
+    transform: scale(1.05);
   }
 }
 

@@ -152,7 +152,7 @@ function App() {
         <div className="featured-project reveal">
           <div className="featured-image-wrapper">
             {/* Aici pui screenshot-ul aplicației de pe telefon */}
-            <img src="/aplicatie-versuri.png" alt="Aplicație Cor" className="featured-img" />
+            <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="featured-img" />
           </div>
           
           <div className="featured-content">
@@ -160,9 +160,9 @@ function App() {
             <h3>Sistem Live Multi-User</h3>
             
             <ul className="featured-list">
-              <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor coriștilor instant.</li>
-              <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API) și căutare text care ignoră diacriticele.</li>
-              <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă cu semnătura "by Flavius Draghici" și zoom salvat local.</li>
+              <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor membrilor trupei instant.</li>
+              <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API).</li>
+              <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă și zoom salvat local.</li>
               <li><strong>Sistem de Roluri:</strong> Acces diferențiat Admin / Dirijor / Corist, susținut de un backend solid în Java.</li>
             </ul>
             
