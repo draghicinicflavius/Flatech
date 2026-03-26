@@ -268,7 +268,7 @@ function App() {
         <p className="reveal">Lasă-ne datele și te sunăm noi cât mai curând.</p>
         
         <div className="contact-wrapper">
-          <form className="contact-form glass-form reveal">
+          <form action="https://formspree.io/f/https://formspree.io/f/xgopezzd" method="POST" className="contact-form glass-form reveal">
             <input type="text" placeholder="Numele tău" required />
             <input type="tel" placeholder="Numărul de telefon" required />
             {/* Corectare sintaxă React pentru select: defaultValue în loc de selected */}
