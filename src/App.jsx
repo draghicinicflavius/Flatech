@@ -264,37 +264,32 @@ function App() {
 
       {/* 5. SECȚIUNEA CONTACT & FORMULAR (Neon Dark Mode) */}
       <section id="contact" className="section contact-section dark-mode">
-        <h2 className="reveal">Începe Proiectul Tău</h2>
-        <p className="reveal">Lasă-ne datele și te sunăm noi cât mai curând.</p>
-        
-        <div className="contact-wrapper">
-          <form action="https://formspree.io/f/https://formspree.io/f/xgopezzd" method="POST" className="contact-form glass-form reveal">
-            <input type="text" placeholder="Numele tău" required />
-            <input type="tel" placeholder="Numărul de telefon" required />
-            {/* Corectare sintaxă React pentru select: defaultValue în loc de selected */}
-            <select required defaultValue="">
-              <option value="" disabled>Ce tip de site dorești?</option>
-              <option value="prezentare">Site de Prezentare (Firme/Servicii)</option>
-              <option value="meniu">Meniu Digital (Horeca)</option>
-              <option value="magazin">Magazin Online</option>
-              <option value="altul">Am altă idee</option>
-            </select>
-            <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
-          </form>
-
-          {/* Linkuri Social Media & WhatsApp */}
-          <div className="social-links reveal">
-            <p>Sau scrie-ne direct pe:</p>
-            <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">💬 WhatsApp</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-btn facebook">📘 Facebook</a>
-
-            <p>Verifica proiectele mele si pe:</p>
-            <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">💼 LinkedIn</a>
-            <a href="https://github.com/draghicinicflavius" target="_blank" rel="noreferrer" className="social-btn github">💻 GitHub</a>
-          </div>
-        </div>
-      </section>
+  <h2 className="reveal">Începe Proiectul Tău</h2>
+  <p className="reveal">Lasă-ne datele și te sunăm noi cât mai curând.</p>
+  
+  <div className="contact-wrapper">
+    {/* AM REPARAT LINK-UL AICI (fără dublură) */}
+    <form action="https://formspree.io/f/xgopezzd" method="POST" className="contact-form glass-form reveal">
+      
+      {/* AM ADĂUGAT name="nume" */}
+      <input type="text" name="nume" placeholder="Numele tău" required />
+      
+      {/* AM ADĂUGAT name="telefon" */}
+      <input type="tel" name="telefon" placeholder="Numărul de telefon" required />
+      
+      {/* AM ADĂUGAT name="subiect" */}
+      <select name="subiect" required defaultValue="">
+        <option value="" disabled>Ce tip de site dorești?</option>
+        <option value="prezentare">Site de Prezentare (Firme/Servicii)</option>
+        <option value="meniu">Meniu Digital (Horeca)</option>
+        <option value="magazin">Magazin Online</option>
+        <option value="altul">Am altă idee</option>
+      </select>
+      
+      <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
+    </form>
+  </div>
+</section>
 
       <Footer />
     </div>
