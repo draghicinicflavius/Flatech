@@ -293,8 +293,8 @@ function App() {
           <div className="social-links reveal">
             <p>Sau scrie-ne direct pe:</p>
             <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">💬 WhatsApp</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-btn facebook">📘 Facebook</a>
+            <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
+            <a href="https://www.facebook.com/draghicinicolae.flavius?locale=ro_RO" target="_blank" rel="noreferrer" className="social-btn facebook">📘 Facebook</a>
 
             <p>Verifica proiectele mele si pe:</p>
             <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">💼 LinkedIn</a>
