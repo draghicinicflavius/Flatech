@@ -1034,79 +1034,169 @@ body.dark-theme .signature {
   .hero-buttons { justify-content: flex-start; }
 }
 
-/* --- MAGIA FLIP CARD 3D --- */
-.flip-card {
-  background-color: transparent;
+//* =========================================
+   STRUCTURĂ HIBRIDĂ PROIECT SPECIAL
+   Mobil: Flip Card Vertical
+   PC (>992px): Layout Curat Side-by-Side
+   ========================================= */
+
+/* 1. Containerul Principal (Aici ținem stilul general: fundal închis, margini neon) */
+.featured-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 800px;
-  height: 450px;
-  margin: 0 auto;
-  perspective: 1000px; /* Dă efectul de adâncime 3D */
+  margin-top: 60px;
 }
 
-.flip-card-inner {
+/* 2. Containerul Cardului (Setăm perspectiva 3D) */
+.dual-layout-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 1200px; /* Lățimea maximă pe PC */
+  perspective: 1000px; /* Necesar pentru efectul 3D pe mobil */
+}
+
+/* 3. Elementul Interior care se rotește (transition) */
+.card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d; /* Necesar pentru 3D */
 }
 
-/* Când pui mouse-ul pe PC sau apeși pe mobil, se întoarce */
-.flip-card:hover .flip-card-inner,
-.flip-card:active .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
+/* 4. Fețele Cardului - Stil comun */
+.card-front, .card-back {
   width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Ascunde spatele când nu e întors */
-  backface-visibility: hidden;
   border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  border: 1px solid rgba(153, 255, 0, 0.2);
-}
-
-/* Design Față (Text) */
-.flip-card-front {
   background: var(--dark-bg);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 40px;
-  text-align: left;
+  border: 1px solid rgba(153, 255, 0, 0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* Design Spate (Imagine) */
-.flip-card-back {
-  background: #111;
-  transform: rotateY(180deg);
-  overflow: hidden;
+/* -----------------------------------------
+   A. STILIZARE MOBIL (Default - sub 991px)
+   Aici forțăm formatul vertical de telefon
+   ----------------------------------------- */
+@media (max-width: 991px) {
+  .dual-layout-card {
+    /* Forțăm dimensiuni verticale de telefon pentru Flip */
+    max-width: 320px;
+    height: 600px;
+    margin: 0 auto;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Activăm rotirea la hover sau atingere pe mobil */
+  .dual-layout-card:hover .card-inner,
+  .dual-layout-card:active .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-front, .card-back {
+    position: absolute; /* Le suprapunem pentru flip */
+    top: 0; left: 0;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Ascundem spatele când nu e întors */
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  /* Spatele este rotit inițial */
+  .card-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Ajustări conținut fețe pe mobil */
+  .card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    text-align: left;
+  }
+
+  .featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
 }
 
-.flip-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+/* -----------------------------------------
+   B. STILIZARE PC (Peste 992px)
+   Aici "stricăm" Flip-ul și facem Layout Curat
+   ----------------------------------------- */
+@media (min-width: 992px) {
+  /* Dezactivăm perspectiva și animația */
+  .dual-layout-card {
+    perspective: none;
+  }
+
+  .card-inner {
+    transform: none !important; /* Anulăm orice rotație */
+    transform-style: flat; /* Nu mai e 3D */
+    display: flex; /* Aliniem fețele una lângă alta */
+    flex-direction: row-reverse; /* Imaginea în stânga, Textul în dreapta (inversăm ordinea din HTML) */
+    align-items: center;
+    background: var(--dark-bg); /* Mutăm fundalul pe containerul PC */
+    border-radius: 20px;
+    border: 1px solid rgba(153, 255, 0, 0.2);
+    overflow: hidden;
+  }
+
+  /* Dezactivăm hover-ul de rotație */
+  .dual-layout-card:hover .card-inner {
+    transform: none;
+  }
+
+  /* Resetăm fețele cardului pentru layout orizontal */
+  .card-front, .card-back {
+    position: relative; /* Nu se mai suprapun */
+    transform: none !important; /* Anulăm rotația Y a spatelui */
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    border: none; /* Ștergem border-ul individual, îl avem pe container */
+    box-shadow: none;
+    background: transparent;
+    height: auto;
+  }
+
+  /* Imaginea (card-back) ocupă stânga */
+  .card-back {
+    flex: 1;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .featured-img {
+    width: 100%;
+    max-width: 280px; /* Lățime fixă de telefon pe PC */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  /* Textul (card-front) ocupă dreapta */
+  .card-front {
+    flex: 1.5;
+    padding: 40px 60px;
+    text-align: left;
+  }
 }
 
-/* Textul care te îndeamnă să apeși */
-.flip-indicator {
-  margin-top: 30px;
-  color: var(--neon-green);
-  font-weight: bold;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  animation: pulse-text 2s infinite;
-}
-
-@keyframes pulse-text {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
+/* (Rămân neschimbate clasele de conținut) */
+.featured-badge { ... }
+.featured-content h3 { ... }
+.featured-list { ... }
+.featured-list li { ... }
+.featured-list li::before { ... }
+.featured-list strong { ... }
