@@ -1,19 +1,84 @@
 :root {
   --neon-green: #99ff00;
-  --dark-bg: #1a1a1a; /* Un gri foarte închis, elegant */
+  --dark-bg: #1a1a1a;
   --light-bg: #ffffff;
   --text-dark: #1a1a1a;
   --text-light: #f4f4f4;
 }
 
-/* MAGIA PENTRU DARK MODE - Inversăm variabilele */
+/* MAGIA PENTRU DARK MODE */
 body.dark-theme {
-  --light-bg: #121212; /* Fundalul alb devine negru-mat */
-  --text-dark: #f4f4f4; /* Textul negru devine alb-deschis */
-  --dark-bg: #1a1a1a; /* Panourile negre rămân negre/gri închis */
+  --light-bg: #121212; 
+  --text-dark: #f4f4f4; 
+  --dark-bg: #1a1a1a; 
 }
 
-/* Butonul de schimbare a temei din meniu */
+/* =========================================
+   RESETARE ȘI STRUCTURĂ DE BAZĂ
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  width: 100%; 
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+}
+
+/* =========================================
+   NAVBAR & MENIU
+   ========================================= */
+.navbar {
+  position: fixed;
+  top: 15px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  width: calc(100% - 40px); 
+  max-width: 1160px; 
+  background: rgba(255, 255, 255, 0.75); 
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px); 
+  border-radius: 20px; 
+  border: 1px solid rgba(153, 255, 0, 0.3); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+}
+
+.nav-logo-text { font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;}
+
 .theme-toggle {
   background: none;
   border: none;
@@ -27,80 +92,11 @@ body.dark-theme {
   transform: scale(1.1);
 }
 
-/* 1. RESET NUCLEAR - Forțăm marginile să nu depășească ecranul sub nicio formă */
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  scroll-behavior: smooth;
-}
-
-/* 2. BLOCĂM HTML-ul și BODY-ul */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden !important; /* Tăiere absolută pe lateral */
-  font-family: 'Inter', sans-serif;
-  background-color: var(--light-bg);
-  color: var(--text-dark);
-}
-
-/* 3. BLOCĂM DIV-UL INVIZIBIL REACT (#root) */
-#root {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* 4. SECURIZĂM CONTAINERELE PRINCIPALE */
-.app-container {
-  width: 100%;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.section {
-  width: 100%; /* Împiedică secțiunea să lărgească pagina */
-  padding: 100px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 80vh;
-}
-
-/* =========================================
-   DE AICI ÎN JOS DESIGN-UL TĂU A RĂMAS INTACT
-   ========================================= */
-
-/* NAVBAR "FLOATING GLASS" */
-.navbar {
-  position: fixed;
-  top: 15px; /* Îl dezlipim de tavan */
-  left: 50%;
-  transform: translateX(-50%); /* Îl centrăm perfect */
-  width: calc(100% - 40px); /* Lăsăm spațiu pe margini */
-  max-width: 1160px; /* Să nu fie prea lung pe PC */
-  background: rgba(255, 255, 255, 0.75); /* Transparent */
-  backdrop-filter: blur(15px); /* Efectul de sticlă mată */
-  -webkit-backdrop-filter: blur(15px); /* Pentru iPhone/Safari */
-  border-radius: 20px; /* Colțuri foarte rotunjite */
-  border: 1px solid rgba(153, 255, 0, 0.3); /* O dungă foarte fină de neon pe margine */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 25px;
-  z-index: 1000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Umbră fină sub el */
-}
-
-.nav-logo-text { font-weight: 900; font-size: 1.5rem; letter-spacing: 1px;}
-
 .hamburger {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  z-index: 1001; /* Ca să putem închide meniul, butonul trebuie să fie deasupra */
+  z-index: 1001; 
 }
 
 .nav-links {
@@ -114,7 +110,6 @@ html, body {
 
 .nav-links a:hover { color: #7acc00; }
 
-/* Mobile Menu - COMPLET REFĂCUT (Premium Tech Dropdown) */
 @media (max-width: 768px) {
   .hamburger { 
     display: block; 
@@ -123,20 +118,19 @@ html, body {
   
   .nav-links {
     position: absolute;
-    top: 115%; /* Pică fix sub pastila meniului */
+    top: 115%; 
     left: 0;
-    width: 100%; /* Ia exact lățimea pastilei albe */
+    width: 100%; 
     height: auto;
     flex-direction: column;
-    background: rgba(20, 20, 20, 0.95); /* Sticlă fumurie/antracit foarte elegantă */
+    background: rgba(20, 20, 20, 0.95); 
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border-radius: 20px;
-    border: 1px solid rgba(153, 255, 0, 0.3); /* Ramă fină verde neon */
+    border: 1px solid rgba(153, 255, 0, 0.3); 
     padding: 25px 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     
-    /* Animație modernă de drop-down dinamic */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px) scale(0.95);
@@ -158,7 +152,6 @@ html, body {
     margin-bottom: 0;
   }
 
-  /* Link-urile din meniu - Stilizare Bombă */
   .nav-links a {
     color: var(--text-light);
     font-size: 1.15rem;
@@ -171,7 +164,6 @@ html, body {
     transition: all 0.3s ease;
   }
 
-  /* Efectul la apăsare pe telefon */
   .nav-links a:hover, 
   .nav-links a:active {
     color: var(--dark-bg);
@@ -181,7 +173,9 @@ html, body {
   }
 }
 
-/* BUTON PLUTITOR APEL (Pulse Animation) */
+/* =========================================
+   BUTON PLUTITOR
+   ========================================= */
 .floating-call-btn {
   position: fixed; bottom: 30px; right: 30px;
   background-color: var(--neon-green);
@@ -201,7 +195,9 @@ html, body {
   100% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
 }
 
-/* FUNDAL TECH GRID ȘI GLOW PENTRU PRIMA PAGINĂ */
+/* =========================================
+   HERO SECTION
+   ========================================= */
 .hero-section {
   position: relative;
   background-color: var(--light-bg);
@@ -210,9 +206,9 @@ html, body {
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   overflow: hidden;
+  padding-top: 150px; 
 }
 
-/* Aura de neon care pulsează în spatele logo-ului */
 .hero-section::before {
   content: '';
   position: absolute;
@@ -235,24 +231,98 @@ html, body {
   100% { transform: translateX(-50%) scale(1.2); opacity: 0.25; }
 }
 
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 30%, var(--light-bg) 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-section * {
   z-index: 1;
   position: relative;
 }
 
-/* HERO & LOGO ANIMAT */
-/* HERO & LOGO ANIMAT - Acum ROTUND PERFECT */
-.hero-logo {
-  width: 220px;
-  height: 220px;
-  object-fit: contain; /* Păstrează logo-ul întreg înăuntru */
-  background: white; /* Îi dă un fundal curat */
-  border-radius: 50%; /* Acesta face cercul */
-  box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Umbră rotundă premium */
-  margin-top: 80px; 
-  margin-bottom: 20px;
+.hero-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  max-width: 1400px; 
+  width: 100%;
+  gap: 50px;
+  z-index: 1;
 }
-/* BUTOANELE NOI PE PRIMA PAGINĂ */
+
+@media (min-width: 992px) {
+  .hero-container {
+    flex-direction: row; 
+    justify-content: space-between;
+    text-align: left;
+  }
+  .hero-image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-text-content {
+    flex: 1.2;
+    padding-left: 40px; 
+  }
+  .hero-badges { justify-content: flex-start; }
+  .hero-buttons { justify-content: flex-start; }
+  .hero-subtitle { margin: 15px 0 35px 0; max-width: 100%; }
+}
+
+.hero-logo {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  background: white; 
+  border-radius: 50%; 
+  border: 3px solid rgba(153, 255, 0, 0.5);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 0 40px rgba(153, 255, 0, 0.2); 
+}
+
+@media (min-width: 992px) { .hero-logo { width: 350px; height: 350px; } }
+
+.floating-logo {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto 30px;
+  line-height: 1.6;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-badges span {
+  background: var(--dark-bg);
+  color: var(--neon-green);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .hero-buttons {
   display: flex;
   gap: 15px;
@@ -261,6 +331,9 @@ html, body {
   flex-wrap: wrap;
 }
 
+/* =========================================
+   BUTOANE GLOBALE
+   ========================================= */
 .outline-btn {
   background: transparent;
   color: var(--text-dark);
@@ -276,7 +349,32 @@ html, body {
   transform: translateY(-3px);
 }
 
-/* --- SECȚIUNEA STATISTICI (BULE CARE SE UMPLU) --- */
+.glow-btn {
+  background: var(--neon-green);
+  color: black;
+  text-decoration: none; border: none;
+  padding: 15px 35px; border-radius: 8px;
+  font-weight: 800; font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(153, 255, 0, 0.6);
+  transition: 0.3s;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 30px var(--neon-green);
+  transform: translateY(-3px);
+}
+
+.small-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* =========================================
+   STATISTICI
+   ========================================= */
 .stats-section {
   min-height: auto;
   padding: 40px 20px 80px;
@@ -308,7 +406,7 @@ html, body {
 
 .circle-bg {
   fill: none;
-  stroke: #eee; /* Gri foarte deschis pe fundal */
+  stroke: #eee; 
   stroke-width: 6;
 }
 
@@ -317,21 +415,19 @@ html, body {
   stroke: var(--neon-green);
   stroke-width: 6;
   stroke-linecap: round;
-  /* Lungimea totală a conturului */
   stroke-dasharray: 251.2;
-  stroke-dashoffset: 251.2; /* Pleacă de la 0 (ascuns) */
-  transition: stroke-dashoffset 2.5s cubic-bezier(0.5, 0, 0.2, 1); /* Animație lentă și fluidă */
+  stroke-dashoffset: 251.2; 
+  transition: stroke-dashoffset 2.5s cubic-bezier(0.5, 0, 0.2, 1); 
 }
 
-/* Aici se întâmplă magia când dai scroll (.active) */
 .reveal.active .fill-100,
 .reveal-left.active .fill-100,
 .reveal-right.active .fill-100 {
-  stroke-dashoffset: 0; /* Se umple complet la 100% */
+  stroke-dashoffset: 0; 
 }
 
 .reveal.active .fill-85 {
-  stroke-dashoffset: 40; /* Se oprește la ~85% pentru un efect real */
+  stroke-dashoffset: 40; 
 }
 
 .percentage {
@@ -350,66 +446,15 @@ html, body {
   letter-spacing: 1px;
 }
 
-/* Animație subtilă de respirație pentru logo */
-.breathing-logo {
-  animation: breathe 4s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.hero-subtitle {
-  font-size: 1.15rem;
-  color: #555;
-  max-width: 700px;
-  margin: 10px auto 30px;
-  line-height: 1.6;
-}
-
-.hero-badges {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.hero-badges span {
-  background: var(--dark-bg);
-  color: var(--neon-green);
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* GLOW BUTTONS */
-.glow-btn {
-  background: var(--neon-green);
-  color: black;
-  text-decoration: none; border: none;
-  padding: 15px 35px; border-radius: 8px;
-  font-weight: 800; font-size: 1.1rem;
-  margin-top: 20px; cursor: pointer;
-  box-shadow: 0 0 15px rgba(153, 255, 0, 0.6);
-  transition: 0.3s;
-}
-
-.glow-btn:hover {
-  box-shadow: 0 0 30px var(--neon-green);
-  transform: translateY(-3px);
-}
-
-/* PORTOFOLIU */
+/* =========================================
+   PORTOFOLIU GRID
+   ========================================= */
 .portfolio-grid-3 {
   display: grid; 
   grid-template-columns: 1fr; 
   gap: 30px;
   width: 100%; 
-  max-width: 1200px; 
+  max-width: 1400px; 
   margin-top: 40px;
 }
 
@@ -423,55 +468,203 @@ html, body {
   border: 1px solid var(--dark-bg);
 }
 
-/* --- PROIECTUL SPECIAL (APLICAȚIA WEB) --- */
+.portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+.portfolio-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.02);
+}
+
+.live-link {
+  display: inline-block; margin-top: 10px; color: var(--dark-bg);
+  font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--neon-green);
+}
+
+/* =========================================
+   STRUCTURĂ HIBRIDĂ PROIECT SPECIAL
+   Mobil: Flip Card Vertical
+   PC (>992px): Layout Curat Side-by-Side
+   ========================================= */
+   /* =========================================
+   PROIECTUL SPECIAL (SISTEM DUBLU REPARAT)
+   ========================================= */
 .featured-project {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- LOGICA DE AFIȘARE (ASCUNDE/ARATĂ) --- */
+.desktop-clean-layout { display: none; }
+.mobile-flip-card { display: block; width: 100%; }
+
+@media (min-width: 992px) {
+  .desktop-clean-layout { display: flex; }
+  .mobile-flip-card { display: none; }
+}
+
+/* -----------------------------------------
+   1. STILIZARE MOBIL (FLIP CARD)
+   ----------------------------------------- */
+.mobile-flip-card {
+  perspective: 1000px;
+  max-width: 320px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.mobile-flip-card:hover .flip-card-inner,
+.mobile-flip-card:active .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(153, 255, 0, 0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  overflow: hidden;
+  background: var(--dark-bg);
+}
+
+.flip-card-front {
   display: flex;
   flex-direction: column;
-  background: var(--dark-bg); /* O punem pe fundal închis ca să spargă monotonia */
-  border-radius: 20px;
-  margin-top: 60px;
-  width: 100%;
-  max-width: 1000px;
-  overflow: hidden;
-  border: 1px solid rgba(153, 255, 0, 0.2);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-@media (min-width: 768px) {
-  .featured-project {
-    flex-direction: row; /* Pe PC le punem una lângă alta */
-    align-items: center;
-  }
-}
-
-.featured-image-wrapper {
-  flex: 1;
+  justify-content: center;
   padding: 30px;
+  text-align: left;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-mobile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* -----------------------------------------
+   2. STILIZARE PC (SIDE-BY-SIDE CURAT)
+   ----------------------------------------- */
+.desktop-clean-layout {
+  background: var(--dark-bg);
+  border-radius: 20px;
+  border: 1px solid rgba(153, 255, 0, 0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  width: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+.desktop-image-wrapper {
+  flex: 1;
+  padding: 40px 20px;
   background: rgba(255,255,255,0.02);
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-.featured-img {
+.desktop-img {
   width: 100%;
-  max-width: 300px; /* Perfectă pentru un screenshot de telefon vertical */
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  transition: transform 0.4s;
+  max-width: 280px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-.featured-project:hover .featured-img {
-  transform: translateY(-5px);
-}
-
-.featured-content {
+.desktop-content {
   flex: 1.5;
-  padding: 40px 30px;
+  padding: 40px 60px;
   text-align: left;
   color: var(--text-light);
 }
 
+/* Stiluri comune conținut (Valabile și pe PC și pe Mobil) */
+.featured-badge {
+  background: rgba(153, 255, 0, 0.1);
+  color: var(--neon-green);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.desktop-content h3, .flip-card-front h3 {
+  font-size: 1.8rem;
+  margin: 15px 0 20px;
+  color: white;
+}
+
+.featured-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.featured-list li {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #bbb;
+  position: relative;
+  padding-left: 25px;
+}
+
+.featured-list li::before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--neon-green);
+  font-size: 1rem;
+}
+
+.featured-list strong {
+  color: white;
+}
+
+.flip-indicator {
+  margin-top: 20px;
+  color: var(--neon-green);
+  font-weight: bold;
+  font-size: 0.9rem;
+  animation: pulse-text 2s infinite;
+}
+
+@keyframes pulse-text {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Stiluri de conținut pentru Proiectul Special */
 .featured-badge {
   background: rgba(153, 255, 0, 0.1);
   color: var(--neon-green);
@@ -504,7 +697,6 @@ html, body {
   padding-left: 25px;
 }
 
-/* Bifă neon pentru fiecare element din listă */
 .featured-list li::before {
   content: '⚡';
   position: absolute;
@@ -518,51 +710,36 @@ html, body {
   color: white;
 }
 
-.small-btn {
-  padding: 12px 25px;
-  font-size: 1rem;
-  display: inline-block;
+.flip-indicator {
+  margin-top: 30px;
+  color: var(--neon-green);
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  animation: pulse-text 2s infinite;
 }
 
-.portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-.portfolio-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-  transition: transform 0.3s;
+@keyframes pulse-text {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
-.portfolio-card:hover .portfolio-img {
-  transform: scale(1.02);
-}
-
-.live-link {
-  display: inline-block; margin-top: 10px; color: var(--dark-bg);
-  font-weight: bold; text-decoration: none; border-bottom: 2px solid var(--neon-green);
-}
-
-/* --- PREȚURI --- */
 /* =========================================
-   GRID PREȚURI (3 PACHETE)
+   SECȚIUNEA PREȚURI
    ========================================= */
 .pricing-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   margin-top: 30px;
 }
 
 @media (min-width: 992px) {
   .pricing-grid {
     grid-template-columns: repeat(3, 1fr);
-    align-items: center; /* Pachetul din mijloc va fi mai înalt */
+    align-items: center; 
   }
 }
 
@@ -580,12 +757,11 @@ html, body {
   transform: translateY(-10px);
 }
 
-/* Evidențierea pachetului Business */
 .pricing-card.popular {
   background: var(--dark-bg);
   color: white;
   border: 2px solid var(--neon-green);
-  transform: scale(1.05); /* Îl facem un pic mai mare pe PC */
+  transform: scale(1.05); 
   box-shadow: 0 15px 40px rgba(153, 255, 0, 0.15);
   z-index: 2;
 }
@@ -608,64 +784,24 @@ html, body {
   text-transform: uppercase;
 }
 
-.pricing-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
+.pricing-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
 .pricing-card.popular h3 { color: white; }
 
-.price {
-  font-size: 3.5rem;
-  font-weight: 900;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-}
-
+.price { font-size: 3.5rem; font-weight: 900; margin-bottom: 10px; color: var(--text-dark); }
 .pricing-card.popular .price { color: var(--neon-green); }
 
-.price span {
-  font-size: 1.5rem;
-  vertical-align: top;
-  margin-right: 5px;
-}
+.price span { font-size: 1.5rem; vertical-align: top; margin-right: 5px; }
 
-.price-desc {
-  color: #777;
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-  height: 40px; /* Aliniem textele */
-}
-
+.price-desc { color: #777; font-size: 0.95rem; margin-bottom: 25px; height: 40px; }
 .pricing-card.popular .price-desc { color: #ccc; }
 
-.pricing-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 35px;
-  text-align: left;
-}
-
-.pricing-card ul li {
-  margin-bottom: 15px;
-  padding-left: 25px;
-  position: relative;
-  font-size: 0.95rem;
-  color: var(--text-dark);
-}
-
+.pricing-card ul { list-style: none; padding: 0; margin: 0 0 35px; text-align: left; }
+.pricing-card ul li { margin-bottom: 15px; padding-left: 25px; position: relative; font-size: 0.95rem; color: var(--text-dark); }
 .pricing-card.popular ul li { color: var(--text-light); }
-
-.pricing-card ul li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--neon-green);
-  font-weight: bold;
-}
+.pricing-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--neon-green); font-weight: bold; }
 
 /* =========================================
-   BANNER GOOGLE ADS (Extra Service)
+   BANNER GOOGLE ADS
    ========================================= */
 .ads-banner {
   display: flex;
@@ -674,7 +810,7 @@ html, body {
   border-radius: 15px;
   margin-top: 60px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   padding: 30px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -688,22 +824,9 @@ html, body {
   }
 }
 
-.ads-content {
-  flex: 2;
-  text-align: left;
-}
-
-.ads-content h3 {
-  font-size: 1.6rem;
-  margin: 0 0 15px 0;
-}
-
-.ads-content p {
-  color: #bbb;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0;
-}
+.ads-content { flex: 2; text-align: left; }
+.ads-content h3 { font-size: 1.6rem; margin: 0 0 15px 0; }
+.ads-content p { color: #bbb; font-size: 1rem; line-height: 1.6; margin: 0; }
 
 .ads-price-box {
   flex: 1;
@@ -718,34 +841,18 @@ html, body {
 
 @media (min-width: 768px) {
   .ads-price-box {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    padding-left: 30px;
+    margin-top: 0; padding-top: 0; border-top: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.1); padding-left: 30px;
   }
 }
 
-.ads-tag {
-  color: #aaa;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-}
+.ads-tag { color: #aaa; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+.ads-cost { font-size: 3rem; font-weight: 900; color: white; margin: 5px 0; }
+.ads-note { color: #666; font-size: 0.8rem; }
 
-.ads-cost {
-  font-size: 3rem;
-  font-weight: 900;
-  color: white;
-  margin: 5px 0;
-}
-
-.ads-note {
-  color: #666;
-  font-size: 0.8rem;
-}
-
-/* CONTACT - DARK MODE & NEON */
+/* =========================================
+   SECȚIUNEA CONTACT & SOCIAL
+   ========================================= */
 .dark-mode {
   background-color: var(--dark-bg); color: var(--text-light);
 }
@@ -753,6 +860,12 @@ html, body {
 .contact-wrapper {
   display: flex; flex-direction: column; gap: 40px;
   width: 100%; max-width: 900px; margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .contact-wrapper { flex-direction: row; align-items: flex-start; }
+  .glass-form { flex: 1; }
+  .social-links { flex: 1; }
 }
 
 .glass-form {
@@ -781,41 +894,43 @@ html, body {
   text-decoration: none; color: white; transition: 0.3s;
 }
 
-/* =========================================
-   STILIZARE PREMIUM PENTRU TITLURILE DE SECȚIUNE
-   ========================================= */
+.whatsapp { background: #25D366; }
+.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.facebook { background: #1877F2; }
+.linkedin { background: #0077b5; } 
+.github { background: #333333; border: 1px solid #555; } 
 
+.social-btn:hover { transform: scale(1.05); }
+
+/* =========================================
+   TITLURI ȘI SUBTITLURI
+   ========================================= */
 .section h2 {
   font-size: 2.2rem;
   font-weight: 900;
   color: var(--text-dark);
-  margin-bottom: 30px; /* Lăsăm spațiu pentru liniuța de dedesubt */
+  margin-bottom: 30px; 
   position: relative;
   display: inline-block;
   text-align: center;
   letter-spacing: -0.5px;
 }
 
-/* Liniuța de neon care "ancorează" titlul */
 .section h2::after {
   content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px; /* O liniuță scurtă, elegantă */
+  width: 60px; 
   height: 4px;
   background: var(--neon-green);
   border-radius: 2px;
-  box-shadow: 0 0 12px rgba(153, 255, 0, 0.5); /* Glow fin de neon */
+  box-shadow: 0 0 12px rgba(153, 255, 0, 0.5); 
 }
 
-/* Asigurăm culoarea albă pentru titlurile de pe fundal negru (Secțiunea Contact) */
-.dark-mode h2 {
-  color: var(--text-light);
-}
+.dark-mode h2 { color: var(--text-light); }
 
-/* Aranjăm și subtitlurile (textul mic de sub titlurile H2) să arate mai ordonat */
 .section .subtitle {
   margin-top: 5px;
   color: #666;
@@ -825,24 +940,9 @@ html, body {
   margin-bottom: 40px;
 }
 
-.whatsapp { background: #25D366; }
-.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.facebook { background: #1877F2; }
-.linkedin { background: #0077b5; } /* Albastrul oficial LinkedIn */
-.github { background: #333333; border: 1px solid #555; } /* Gri închis pentru GitHub */
-
-.social-btn:hover { transform: scale(1.05); }
-
-@media (min-width: 768px) {
-  .contact-wrapper { flex-direction: row; align-items: flex-start; }
-  .glass-form { flex: 1; }
-  .social-links { flex: 1; }
-}
-
 /* =========================================
-   SCROLL REVEAL ANIMATIONS (MAGIA BIDIRECȚIONALĂ)
+   SCROLL REVEAL ANIMATIONS
    ========================================= */
-
 .reveal {
   opacity: 0;
   transform: translateY(100px);
@@ -871,332 +971,3 @@ html, body {
 .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
 .portfolio-card:nth-child(2) { transition-delay: 0.2s; }
 .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
-/* --- 1. HERO SECTION (SPLIT SCREEN & FADE BACKGROUND) --- */
-.hero-section {
-  position: relative;
-  background-color: var(--light-bg);
-  /* Liniile matematice */
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  overflow: hidden;
-  padding-top: 150px; /* Facem loc pentru navbar */
-}
-
-/* Mască de fade-out pentru fundalul matematic (să se șteargă spre margini) */
-.hero-section::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, transparent 30%, var(--light-bg) 80%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1400px; /* Lățit considerabil */
-  width: 100%;
-  gap: 50px;
-  z-index: 1;
-}
-
-/* Modificări pentru ecrane mari (PC) - Aliniere Stânga/Dreapta */
-@media (min-width: 992px) {
-  .hero-container {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
-  .hero-text-content {
-    flex: 1.2;
-    padding-right: 40px;
-  }
-  .hero-image-content {
-    flex: 0.8;
-    display: flex;
-    justify-content: center;
-  }
-  .hero-badges { justify-content: flex-start; }
-  .hero-buttons { justify-content: flex-start; }
-  .hero-subtitle { margin: 15px 0 35px 0; max-width: 100%; }
-}
-
-/* --- 2. LOGO ROTUND CU EFECT DE LEVITAȚIE --- */
-.hero-logo {
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
-  background: white;
-  border-radius: 50%;
-  border: 3px solid rgba(153, 255, 0, 0.5); /* Ramă subțire de neon */
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 0 40px rgba(153, 255, 0, 0.2);
-}
-
-@media (min-width: 992px) { .hero-logo { width: 350px; height: 350px; } }
-
-.floating-logo {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
-}
-
-/* --- 3. MOCKUP TELEFON PENTRU APLICAȚIE --- */
-.phone-mockup {
-  position: relative;
-  width: 280px;
-  height: 560px;
-  background: #000;
-  border-radius: 40px;
-  border: 12px solid #1a1a1a;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.2);
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-/* Pata neagră de sus a telefonului (Notch / Dynamic Island) */
-.phone-notch {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 25px;
-  background: #1a1a1a;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  z-index: 2;
-}
-
-.phone-mockup img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-/* --- 4. LĂȚIREA SECȚIUNILOR (Elimină "golul" pe PC) --- */
-.portfolio-grid-3, 
-.featured-project, 
-.pricing-grid, 
-.ads-banner {
-  max-width: 1400px; /* Era 1100px. Acum va acoperi ecranul mult mai bine */
-}
-
-/* --- 5. SEMNĂTURA --- */
-.signature {
-  text-align: center;
-  padding: 30px 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: var(--text-dark);
-  font-size: 0.9rem;
-}
-
-body.dark-theme .signature {
-  color: var(--text-light); /* Ca să se vadă și pe Dark Mode */
-}
-
-/* --- HERO SECTION REPARAT (Logo Stânga, Text Dreapta) --- */
-.hero-container {
-  display: flex;
-  flex-direction: column; /* Pe mobil: le pune unul sub altul normal */
-  align-items: center;
-  max-width: 1400px; 
-  width: 100%;
-  gap: 50px;
-  z-index: 1;
-}
-
-@media (min-width: 992px) {
-  .hero-container {
-    flex-direction: row; /* Pe PC: le pune stânga-dreapta */
-    justify-content: space-between;
-    text-align: left;
-  }
-  .hero-image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-  .hero-text-content {
-    flex: 1.2;
-    padding-left: 40px; /* Spațiu între poză și text */
-  }
-  .hero-badges { justify-content: flex-start; }
-  .hero-buttons { justify-content: flex-start; }
-}
-
-//* =========================================
-   STRUCTURĂ HIBRIDĂ PROIECT SPECIAL
-   Mobil: Flip Card Vertical
-   PC (>992px): Layout Curat Side-by-Side
-   ========================================= */
-
-/* 1. Containerul Principal (Aici ținem stilul general: fundal închis, margini neon) */
-.featured-project {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 60px;
-}
-
-/* 2. Containerul Cardului (Setăm perspectiva 3D) */
-.dual-layout-card {
-  background-color: transparent;
-  width: 100%;
-  max-width: 1200px; /* Lățimea maximă pe PC */
-  perspective: 1000px; /* Necesar pentru efectul 3D pe mobil */
-}
-
-/* 3. Elementul Interior care se rotește (transition) */
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d; /* Necesar pentru 3D */
-}
-
-/* 4. Fețele Cardului - Stil comun */
-.card-front, .card-back {
-  width: 100%;
-  border-radius: 20px;
-  background: var(--dark-bg);
-  border: 1px solid rgba(153, 255, 0, 0.2);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-/* -----------------------------------------
-   A. STILIZARE MOBIL (Default - sub 991px)
-   Aici forțăm formatul vertical de telefon
-   ----------------------------------------- */
-@media (max-width: 991px) {
-  .dual-layout-card {
-    /* Forțăm dimensiuni verticale de telefon pentru Flip */
-    max-width: 320px;
-    height: 600px;
-    margin: 0 auto;
-  }
-
-  .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Activăm rotirea la hover sau atingere pe mobil */
-  .dual-layout-card:hover .card-inner,
-  .dual-layout-card:active .card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .card-front, .card-back {
-    position: absolute; /* Le suprapunem pentru flip */
-    top: 0; left: 0;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Ascundem spatele când nu e întors */
-    backface-visibility: hidden;
-    overflow: hidden;
-  }
-
-  /* Spatele este rotit inițial */
-  .card-back {
-    transform: rotateY(180deg);
-  }
-
-  /* Ajustări conținut fețe pe mobil */
-  .card-front {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-    text-align: left;
-  }
-
-  .featured-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-  }
-}
-
-/* -----------------------------------------
-   B. STILIZARE PC (Peste 992px)
-   Aici "stricăm" Flip-ul și facem Layout Curat
-   ----------------------------------------- */
-@media (min-width: 992px) {
-  /* Dezactivăm perspectiva și animația */
-  .dual-layout-card {
-    perspective: none;
-  }
-
-  .card-inner {
-    transform: none !important; /* Anulăm orice rotație */
-    transform-style: flat; /* Nu mai e 3D */
-    display: flex; /* Aliniem fețele una lângă alta */
-    flex-direction: row-reverse; /* Imaginea în stânga, Textul în dreapta (inversăm ordinea din HTML) */
-    align-items: center;
-    background: var(--dark-bg); /* Mutăm fundalul pe containerul PC */
-    border-radius: 20px;
-    border: 1px solid rgba(153, 255, 0, 0.2);
-    overflow: hidden;
-  }
-
-  /* Dezactivăm hover-ul de rotație */
-  .dual-layout-card:hover .card-inner {
-    transform: none;
-  }
-
-  /* Resetăm fețele cardului pentru layout orizontal */
-  .card-front, .card-back {
-    position: relative; /* Nu se mai suprapun */
-    transform: none !important; /* Anulăm rotația Y a spatelui */
-    -webkit-backface-visibility: visible;
-    backface-visibility: visible;
-    border: none; /* Ștergem border-ul individual, îl avem pe container */
-    box-shadow: none;
-    background: transparent;
-    height: auto;
-  }
-
-  /* Imaginea (card-back) ocupă stânga */
-  .card-back {
-    flex: 1;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .featured-img {
-    width: 100%;
-    max-width: 280px; /* Lățime fixă de telefon pe PC */
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  }
-
-  /* Textul (card-front) ocupă dreapta */
-  .card-front {
-    flex: 1.5;
-    padding: 40px 60px;
-    text-align: left;
-  }
-}
-
-/* (Rămân neschimbate clasele de conținut) */
-.featured-badge { ... }
-.featured-content h3 { ... }
-.featured-list { ... }
-.featured-list li { ... }
-.featured-list li::before { ... }
-.featured-list strong { ... }

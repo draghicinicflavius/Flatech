@@ -155,29 +155,46 @@ function App() {
 
         </div>
 
+        {/* PROIECTUL SPECIAL - REPARAT DEFINITIV */}
         <div className="featured-project reveal">
-          <div className="flip-card">
+          
+          {/* 1. VARIANTA MOBIL (FLIP CARD 3D) */}
+          <div className="mobile-flip-card">
             <div className="flip-card-inner">
-              
               <div className="flip-card-front">
                 <span className="featured-badge">Aplicație Web Custom</span>
                 <h3>Sistem Live Multi-User</h3>
                 <ul className="featured-list">
-                  <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează totul instant.</li>
+                  <li><strong>Sincronizare:</strong> Comanda dirijorului actualizează tot.</li>
                   <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API).</li>
-                  <li><strong>Design PWA:</strong> Instalabilă pe Home Screen, interfață adaptivă.</li>
+                  <li><strong>PWA:</strong> Instalabilă pe mobil.</li>
                 </ul>
-                <div className="flip-indicator">
-                  Hover / Apasă pe card pentru interfață ⤵
-                </div>
+                <div className="flip-indicator">Apasă pentru captură ⤵</div>
               </div>
-
               <div className="flip-card-back">
-                <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="flip-image" />
+                <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="flip-mobile-img" />
               </div>
-
             </div>
           </div>
+
+          {/* 2. VARIANTA PC (SIDE-BY-SIDE CURAT) */}
+          <div className="desktop-clean-layout">
+            <div className="desktop-image-wrapper">
+              <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="desktop-img" />
+            </div>
+            <div className="desktop-content">
+              <span className="featured-badge">Aplicație Web Custom (Full-Stack)</span>
+              <h3>Sistem Live Multi-User</h3>
+              <ul className="featured-list">
+                <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor membrilor.</li>
+                <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API).</li>
+                <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă.</li>
+                <li><strong>Sistem de Roluri:</strong> Acces diferențiat Admin / Dirijor / Corist.</li>
+              </ul>
+              <a href="#" className="glow-btn small-btn">Vezi Detalii</a>
+            </div>
+          </div>
+
         </div>
       </section>
 
