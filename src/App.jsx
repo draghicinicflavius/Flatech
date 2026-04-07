@@ -80,28 +80,35 @@ function App() {
       </a>
 
       {/* 3. SECȚIUNEA HERO (Logo Rotund, Text nou, Insigne și 2 Butoane) */}
+      {/* 3. SECȚIUNEA HERO (Refăcută: Split-Screen pe PC) */}
       <section id="acasa" className="section hero-section">
-        {/* Logo-ul are acum clasa pentru a fi rotund perfect */}
-        <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo breathing-logo reveal" />
-        <h1 className="reveal">Construim prezența ta online!</h1>
-        
-        {/* Text nou și captivant */}
-        <p className="hero-subtitle reveal">
-          Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
-          Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
-        </p>
+        <div className="hero-container">
+          
+          {/* Coloana Stânga: Text și Butoane */}
+          <div className="hero-text-content reveal-left">
+            <h1>Construim prezența ta online!</h1>
+            <p className="hero-subtitle">
+              Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
+              Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
+            </p>
 
-        {/* Insigne de încredere adăugate pentru un aspect 'Viu' */}
-        <div className="hero-badges reveal">
-          <span>✅ Design Premium</span>
-          <span>✅ Optimizare SEO</span>
-          <span>✅ Suport Inclus</span>
-        </div>
+            <div className="hero-badges">
+              <span>✅ Design Premium</span>
+              <span>✅ Optimizare SEO</span>
+              <span>✅ Suport Inclus</span>
+            </div>
 
-        {/* Butoanele Noi */}
-        <div className="hero-buttons reveal">
-          <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
-          <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
+            <div className="hero-buttons">
+              <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
+              <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
+            </div>
+          </div>
+
+          {/* Coloana Dreapta: Imagine / Logo levitând */}
+          <div className="hero-image-content reveal-right">
+            <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo floating-logo" />
+          </div>
+
         </div>
       </section>
 
@@ -176,10 +183,14 @@ function App() {
         </div>
 
         {/* PROIECTUL SPECIAL (Aplicația Web Full-Stack) */}
+        {/* PROIECTUL SPECIAL (Aplicația Web Full-Stack cu Telefon Mockup) */}
         <div className="featured-project reveal">
           <div className="featured-image-wrapper">
-            {/* Aici pui screenshot-ul aplicației de pe telefon */}
-            <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="featured-img" />
+            {/* Aici am creat telefonul din CSS */}
+            <div className="phone-mockup">
+              <div className="phone-notch"></div>
+              <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="featured-img" />
+            </div>
           </div>
           
           <div className="featured-content">
@@ -187,10 +198,10 @@ function App() {
             <h3>Sistem Live Multi-User</h3>
             
             <ul className="featured-list">
-              <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor membrilor trupei instant.</li>
+              <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor membrilor.</li>
               <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API).</li>
-              <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă și zoom salvat local.</li>
-              <li><strong>Sistem de Roluri:</strong> Acces diferențiat Admin / Dirijor / Corist, susținut de un backend solid în Java.</li>
+              <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă.</li>
+              <li><strong>Sistem de Roluri:</strong> Acces diferențiat, susținut de backend Java.</li>
             </ul>
             
             <a href="#" target="_blank" rel="noreferrer" className="glow-btn small-btn">Vezi Detalii</a>

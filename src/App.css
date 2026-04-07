@@ -871,3 +871,135 @@ html, body {
 .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
 .portfolio-card:nth-child(2) { transition-delay: 0.2s; }
 .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
+/* --- 1. HERO SECTION (SPLIT SCREEN & FADE BACKGROUND) --- */
+.hero-section {
+  position: relative;
+  background-color: var(--light-bg);
+  /* Liniile matematice */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  overflow: hidden;
+  padding-top: 150px; /* Facem loc pentru navbar */
+}
+
+/* Mască de fade-out pentru fundalul matematic (să se șteargă spre margini) */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 30%, var(--light-bg) 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px; /* Lățit considerabil */
+  width: 100%;
+  gap: 50px;
+  z-index: 1;
+}
+
+/* Modificări pentru ecrane mari (PC) - Aliniere Stânga/Dreapta */
+@media (min-width: 992px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .hero-text-content {
+    flex: 1.2;
+    padding-right: 40px;
+  }
+  .hero-image-content {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-badges { justify-content: flex-start; }
+  .hero-buttons { justify-content: flex-start; }
+  .hero-subtitle { margin: 15px 0 35px 0; max-width: 100%; }
+}
+
+/* --- 2. LOGO ROTUND CU EFECT DE LEVITAȚIE --- */
+.hero-logo {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  background: white;
+  border-radius: 50%;
+  border: 3px solid rgba(153, 255, 0, 0.5); /* Ramă subțire de neon */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 0 40px rgba(153, 255, 0, 0.2);
+}
+
+@media (min-width: 992px) { .hero-logo { width: 350px; height: 350px; } }
+
+.floating-logo {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- 3. MOCKUP TELEFON PENTRU APLICAȚIE --- */
+.phone-mockup {
+  position: relative;
+  width: 280px;
+  height: 560px;
+  background: #000;
+  border-radius: 40px;
+  border: 12px solid #1a1a1a;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.2);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Pata neagră de sus a telefonului (Notch / Dynamic Island) */
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 25px;
+  background: #1a1a1a;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  z-index: 2;
+}
+
+.phone-mockup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+/* --- 4. LĂȚIREA SECȚIUNILOR (Elimină "golul" pe PC) --- */
+.portfolio-grid-3, 
+.featured-project, 
+.pricing-grid, 
+.ads-banner {
+  max-width: 1400px; /* Era 1100px. Acum va acoperi ecranul mult mai bine */
+}
+
+/* --- 5. SEMNĂTURA --- */
+.signature {
+  text-align: center;
+  padding: 30px 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+body.dark-theme .signature {
+  color: var(--text-light); /* Ca să se vadă și pe Dark Mode */
+}
