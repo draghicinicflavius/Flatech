@@ -1070,3 +1070,73 @@ html, body {
 .portfolio-card:nth-child(1) { transition-delay: 0.1s; }
 .portfolio-card:nth-child(2) { transition-delay: 0.2s; }
 .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* =========================================
+   COMPACT DESKTOP MODE (Efectul de 80% Zoom)
+   ========================================= */
+@media (min-width: 992px) {
+  /* 1. Reducem scara generală a fonturilor pe PC (tot ce e 'rem' se micșorează automat cu ~15%) */
+  html {
+    font-size: 14px; 
+  }
+
+  /* 2. Strângem containerele la o lățime mai elegantă (de la 1400px la 1150px) */
+  .hero-container,
+  .portfolio-grid-3,
+  .featured-project,
+  .pricing-grid,
+  .ads-banner {
+    max-width: 1150px !important;
+  }
+
+  /* 3. Tăiem din spațiile uriașe (padding-uri) dintre secțiuni */
+  .section {
+    padding: 70px 20px !important;
+    min-height: auto !important;
+  }
+  
+  .hero-section {
+    padding-top: 130px !important; /* Lăsăm loc doar pentru meniu */
+  }
+
+  .hero-container {
+    gap: 30px !important;
+  }
+
+  /* 4. Micșorăm logo-ul uriaș de pe prima pagină */
+  .hero-logo {
+    width: 280px !important;
+    height: 280px !important;
+  }
+
+  /* 5. Ajustăm fin titlul principal ca să stea bine cu noul spațiu */
+  .hero-text-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+}
+
+/* =========================================
+   COMPACTARE PROIECT SPECIAL (Doar pe PC)
+   ========================================= */
+@media (min-width: 992px) {
+  /* Limităm lățimea întregului card negru ca să nu mai ocupe tot ecranul */
+  .desktop-clean-layout {
+    max-width: 950px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Micșorăm clar telefonul din stânga (de la 280px la 210px) */
+  .desktop-img {
+    max-width: 210px !important; 
+  }
+
+  /* Tăiem din spațiile uriașe (padding) din interiorul cardului */
+  .desktop-content {
+    padding: 30px 40px !important;
+  }
+  
+  .desktop-image-wrapper {
+    padding: 30px 15px !important;
+  }
+}
