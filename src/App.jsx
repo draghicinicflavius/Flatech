@@ -246,7 +246,7 @@ function App() {
             <div className="price"><span>€</span>800<span>+</span></div>
             <p className="price-desc">Aplicații web și funcționalități complexe.</p>
             <ul>
-              <li>Magazin Online / Meniu Digital</li>
+              <li>Meniu Digital / Sistem de Programări</li>
               <li>Backend / Bază de date (Java/Node)</li>
               <li>Sistem conturi / Sincronizare live</li>
               <li>Design PWA instalabil pe mobil</li>
@@ -280,7 +280,8 @@ function App() {
               <option value="" disabled>Ce tip de site dorești?</option>
               <option value="prezentare">Site de Prezentare (Firme/Servicii)</option>
               <option value="meniu">Meniu Digital (Horeca)</option>
-              <option value="magazin">Magazin Online</option>
+              <option value="magazin">Sistem de Programări</option>
+              <option value="aplicatie">Aplicatie Web</option>
               <option value="altul">Am altă idee</option>
             </select>
             <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
