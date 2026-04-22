@@ -5,6 +5,7 @@ import Footer from './Footer'
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isFlipCardFlipped, setIsFlipCardFlipped] = useState(false);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -159,8 +160,14 @@ function App() {
         <div className="featured-project reveal">
           
           {/* 1. VARIANTA MOBIL (FLIP CARD 3D) */}
-          <div className="mobile-flip-card">
+          <div 
+            className={`mobile-flip-card ${isFlipCardFlipped ? 'flipped' : ''}`}
+            onClick={() => setIsFlipCardFlipped(!isFlipCardFlipped)}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="flip-card-inner">
+              
+              {/* Fața cardului */}
               <div className="flip-card-front">
                 <span className="featured-badge">Aplicație Web Custom</span>
                 <h3>Sistem Live Multi-User</h3>
@@ -171,9 +178,13 @@ function App() {
                 </ul>
                 <div className="flip-indicator">Apasă pentru captură ⤵</div>
               </div>
+
+              {/* Spatele cardului - DOAR IMAGINEA PE TOT CARDUL */}
               <div className="flip-card-back">
                 <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="flip-mobile-img" />
+                <div className="flip-indicator back-indicator">Apasă pentru a reveni ⤴</div>
               </div>
+
             </div>
           </div>
 
