@@ -70,11 +70,11 @@ function App() {
           
           <div className="hero-image-content reveal-right">
             <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo floating-logo" />
+            {/* SPAȚIU ADĂUGAT AICI PENTRU A ÎMPINGE TEXTUL MAI JOS */}
+            <div style={{ height: '40px', width: '100%' }}></div>
           </div>
 
           <div className="hero-text-content reveal-left">
-            
-            {/* Semnătura mutată sus, cu spațiere mare care împinge totul în jos */}
             <span style={{ 
               display: 'block', 
               color: 'var(--neon-green)', 
@@ -108,9 +108,9 @@ function App() {
         </div>
       </section>
 
+      {/* Restul secțiunilor rămân la fel */}
       <section className="section stats-section">
         <div className="stats-grid">
-          
           <div className="stat-box reveal-left">
             <svg viewBox="0 0 100 100" className="circular-chart">
               <path className="circle-bg" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
@@ -119,7 +119,6 @@ function App() {
             </svg>
             <h3>Clienți Mulțumiți</h3>
           </div>
-
           <div className="stat-box reveal">
             <svg viewBox="0 0 100 100" className="circular-chart">
               <path className="circle-bg" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
@@ -128,7 +127,6 @@ function App() {
             </svg>
             <h3>Proiecte Finalizate</h3>
           </div>
-
           <div className="stat-box reveal-right">
             <svg viewBox="0 0 100 100" className="circular-chart">
               <path className="circle-bg" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
@@ -137,44 +135,37 @@ function App() {
             </svg>
             <h3>Suport Tehnic</h3>
           </div>
-
         </div>
       </section>
 
       <section id="portofoliu" className="section portfolio-section">
         <h2 className="reveal">Proiecte Finalizate</h2>
         <p className="subtitle reveal">Nu vindem doar idei, iată câteva din site-urile noastre live:</p>
-        
         <div className="portfolio-grid-3">
-          
           <div className="portfolio-card reveal-left">
             <img src="/topmontajacoperis.png" alt="Site Top Acoperis" className="portfolio-img" />
             <h3>Top Acoperiș Montaj</h3>
             <p>Site de prezentare servicii</p>
             <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
-          
           <div className="portfolio-card reveal">
             <img src="/site2.png" alt="Site 2" className="portfolio-img" />
             <h3>Proiectul deGoicea</h3>
             <p>Portofoliu fotografi/formatii</p>
             <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
-
           <div className="portfolio-card reveal-right">
             <img src="/site3.png" alt="Site 3" className="portfolio-img" />
             <h3>Meniu Digital Cafenele</h3>
             <p>Meniu / Cod QR</p>
             <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
           </div>
-
         </div>
       </section>
 
       <section id="preturi" className="section pricing-section">
         <h2 className="reveal">Pachete Web Design</h2>
         <p className="subtitle reveal">Transparență totală. Alege pachetul potrivit pentru stadiul afacerii tale.</p>
-        
         <div className="pricing-grid reveal">
           <div className="pricing-card">
             <h3>Pachetul Start</h3>
@@ -188,7 +179,6 @@ function App() {
             </ul>
             <a href="#contact" className="outline-btn small-btn">Alege Pachetul</a>
           </div>
-
           <div className="pricing-card popular">
             <div className="popular-badge">Cel Mai Vândut</div>
             <h3>Pachetul Business</h3>
@@ -202,7 +192,6 @@ function App() {
             </ul>
             <a href="#contact" className="glow-btn small-btn">Alege Pachetul</a>
           </div>
-
           <div className="pricing-card">
             <h3>Pachet Premium</h3>
             <div className="price"><span>€</span>650<span>+</span></div>
@@ -216,7 +205,6 @@ function App() {
             <a href="#contact" className="outline-btn small-btn">Cere Ofertă</a>
           </div>
         </div>
-
         <div className="ads-banner reveal">
           <div className="ads-content">
             <h3 style={{ color: "var(--neon-green)" }}>🚀 Vrei clienți din prima zi?</h3>
@@ -233,7 +221,6 @@ function App() {
       <section id="contact" className="section contact-section dark-mode">
         <h2 className="reveal">Începe Proiectul Tău</h2>
         <p className="reveal">Lasă-ne datele și te sunăm noi cât mai curând.</p>
-        
         <div className="contact-wrapper">
           <form action="https://formspree.io/f/xgopezzd" method="POST" className="contact-form glass-form reveal">
             <input type="text" name="nume" placeholder="Numele tău" required />
@@ -247,13 +234,11 @@ function App() {
             </select>
             <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
           </form>
-
           <div className="social-links reveal">
             <p>Sau scrie-ne direct pe:</p>
             <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">💬 WhatsApp</a>
             <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
             <a href="https://www.facebook.com/draghicinicolae.flavius?locale=ro_RO" target="_blank" rel="noreferrer" className="social-btn facebook">📘 Facebook</a>
-
             <p>Verifică proiectele mele și pe:</p>
             <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">💼 LinkedIn</a>
             <a href="https://github.com/draghicinicflavius" target="_blank" rel="noreferrer" className="social-btn github">💻 GitHub</a>

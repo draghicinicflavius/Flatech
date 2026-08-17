@@ -785,3 +785,19 @@ html, body {
     height: 180px !important;
   }
 }
+/* Păstrăm logo-ul mare și frumos pe telefon */
+.hero-logo {
+  width: 250px !important;
+  height: 250px !important;
+}
+
+/* Împingem tot blocul de text mai jos față de logo pe telefon */
+@media (max-width: 991px) {
+  .hero-container {
+    gap: 40px !important; /* Mărim distanța generală */
+  }
+
+  .hero-image-content {
+    margin-bottom: 25px !important; /* Spațiu generos sub logo */
+  }
+}
