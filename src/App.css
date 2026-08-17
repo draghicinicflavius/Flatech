@@ -766,11 +766,11 @@ html, body {
 }
 
 /* =========================================
-   OPTIMIZARE HERO PE MOBIL (Logo Mare + Text Coborât)
+   OPTIMIZARE HERO PE MOBIL (Logo Mare + Coborât Mai Jos)
    ========================================= */
 @media (max-width: 991px) {
-  .hero-section {
-    padding-top: 190px !important; /* Coborâm tot blocul hero mai jos de meniu */
+  .hero-image-content {
+    margin-top: 50px !important; /* Împinge logo-ul și tot conținutul de sub el mai jos față de navbar */
   }
 
   .hero-container {
@@ -781,14 +781,14 @@ html, body {
     gap: 30px !important; 
   }
 
-  /* Logo rămâne mare și frumos */
+  /* Logo mare */
   .hero-logo {
     width: 250px !important; 
     height: 250px !important;
   }
 
-  /* Împingem textul și semnătura mai jos față de logo */
+  /* Distanța suplimentară între logo și text */
   .hero-text-content {
-    margin-top: 25px !important; 
+    margin-top: 20px !important; 
   }
 }
