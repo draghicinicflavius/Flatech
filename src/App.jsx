@@ -5,7 +5,6 @@ import Footer from './Footer'
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isFlipCardFlipped, setIsFlipCardFlipped] = useState(false);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -73,6 +72,11 @@ function App() {
           </div>
 
           <div className="hero-text-content reveal-left">
+            {/* Semnătura personală adăugată aici */}
+            <span style={{ display: 'block', color: 'var(--neon-green)', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '15px', fontSize: '0.9rem' }}>
+              by Flavius Draghici
+            </span>
+            
             <h1>Construim prezența ta online!</h1>
             <p className="hero-subtitle">
               Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
@@ -149,61 +153,9 @@ function App() {
 
           <div className="portfolio-card reveal-right">
             <img src="/site3.png" alt="Site 3" className="portfolio-img" />
-            <h3>Meniu Digital Cafenele/Restaurante</h3>
+            <h3>Meniu Digital Cafenele</h3>
             <p>Meniu / Cod QR</p>
             <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
-          </div>
-
-        </div>
-
-        {/* PROIECTUL SPECIAL - REPARAT DEFINITIV */}
-        <div className="featured-project reveal">
-          
-          {/* 1. VARIANTA MOBIL (FLIP CARD 3D) */}
-          <div 
-            className={`mobile-flip-card ${isFlipCardFlipped ? 'flipped' : ''}`}
-            onClick={() => setIsFlipCardFlipped(!isFlipCardFlipped)}
-            style={{ cursor: 'pointer' }}
-          >
-            <div className="flip-card-inner">
-              
-              {/* Fața cardului */}
-              <div className="flip-card-front">
-                <span className="featured-badge">Aplicație Web Custom</span>
-                <h3>Sistem Live Multi-User</h3>
-                <ul className="featured-list">
-                  <li><strong>Sincronizare:</strong> Comanda dirijorului actualizează tot.</li>
-                  <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API).</li>
-                  <li><strong>PWA:</strong> Instalabilă pe mobil.</li>
-                </ul>
-                <div className="flip-indicator">Apasă pentru captură ⤵</div>
-              </div>
-
-              {/* Spatele cardului - DOAR IMAGINEA PE TOT CARDUL */}
-              <div className="flip-card-back">
-                <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="flip-mobile-img" />
-                <div className="flip-indicator back-indicator">Apasă pentru a reveni ⤴</div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* 2. VARIANTA PC (SIDE-BY-SIDE CURAT) */}
-          <div className="desktop-clean-layout">
-            <div className="desktop-image-wrapper">
-              <img src="/aplicatie-versuri.jpeg" alt="Aplicație Cor" className="desktop-img" />
-            </div>
-            <div className="desktop-content">
-              <span className="featured-badge">Aplicație Web Custom (Full-Stack)</span>
-              <h3>Sistem Live Multi-User</h3>
-              <ul className="featured-list">
-                <li><strong>Sincronizare în Timp Real:</strong> Comanda dirijorului actualizează automat ecranele tuturor membrilor.</li>
-                <li><strong>Motor Inteligent:</strong> Căutare vocală (Web Speech API).</li>
-                <li><strong>Design PWA & UX:</strong> Instalabilă pe Home Screen, interfață adaptivă.</li>
-                <li><strong>Sistem de Roluri:</strong> Acces diferențiat Admin / Dirijor / Corist.</li>
-              </ul>
-              <a href="#" className="glow-btn small-btn">Vezi Detalii</a>
-            </div>
           </div>
 
         </div>
@@ -242,14 +194,14 @@ function App() {
           </div>
 
           <div className="pricing-card">
-            <h3>Custom Software</h3>
-            <div className="price"><span>€</span>800<span>+</span></div>
-            <p className="price-desc">Aplicații web și funcționalități complexe.</p>
+            <h3>Pachet Premium</h3>
+            <div className="price"><span>€</span>650<span>+</span></div>
+            <p className="price-desc">Pentru afaceri cu nevoi specifice de organizare.</p>
             <ul>
-              <li>Meniu Digital / Sistem de Programări</li>
-              <li>Backend / Bază de date (Java/Node)</li>
-              <li>Sistem conturi / Sincronizare live</li>
-              <li>Design PWA instalabil pe mobil</li>
+              <li>Catalog de produse (Fără plată)</li>
+              <li>Sistem integrat de Programări</li>
+              <li>Panou de administrare conținut</li>
+              <li>Optimizare tehnică și SEO</li>
             </ul>
             <a href="#contact" className="outline-btn small-btn">Cere Ofertă</a>
           </div>
@@ -280,8 +232,7 @@ function App() {
               <option value="" disabled>Ce tip de site dorești?</option>
               <option value="prezentare">Site de Prezentare (Firme/Servicii)</option>
               <option value="meniu">Meniu Digital (Horeca)</option>
-              <option value="magazin">Sistem de Programări</option>
-              <option value="aplicatie">Aplicatie Web</option>
+              <option value="catalog_programari">Catalog Produse / Programări</option>
               <option value="altul">Am altă idee</option>
             </select>
             <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
@@ -293,7 +244,7 @@ function App() {
             <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
             <a href="https://www.facebook.com/draghicinicolae.flavius?locale=ro_RO" target="_blank" rel="noreferrer" className="social-btn facebook">📘 Facebook</a>
 
-            <p>Verifica proiectele mele si pe:</p>
+            <p>Verifică proiectele mele și pe:</p>
             <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">💼 LinkedIn</a>
             <a href="https://github.com/draghicinicflavius" target="_blank" rel="noreferrer" className="social-btn github">💻 GitHub</a>
           </div>
