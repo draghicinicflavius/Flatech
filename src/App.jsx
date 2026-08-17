@@ -73,7 +73,17 @@ function App() {
           </div>
 
           <div className="hero-text-content reveal-left">
-            <span style={{ display: 'block', color: 'var(--neon-green)', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '15px', fontSize: '0.9rem' }}>
+            
+            {/* Semnătura mutată sus, cu spațiere mare care împinge totul în jos */}
+            <span style={{ 
+              display: 'block', 
+              color: 'var(--neon-green)', 
+              fontWeight: '800', 
+              letterSpacing: '2px', 
+              textTransform: 'uppercase', 
+              marginBottom: '20px', 
+              fontSize: '0.9rem' 
+            }}>
               by Flavius Draghici
             </span>
             

@@ -806,3 +806,12 @@ html, body {
     padding: 30px 15px !important;
   }
 }
+.hero-image-content {
+  margin-bottom: 30px; /* Adaugă acest spațiu pentru a împinge textul mai jos de logo */
+}
+
+@media (min-width: 992px) {
+  .hero-image-content {
+    margin-bottom: 0; /* Pe desktop rămâne la fel, pentru că avem layout side-by-side */
+  }
+}
