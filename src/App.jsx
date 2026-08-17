@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Footer from './Footer'
+import CookieBanner from './CookieBanner'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,7 +73,6 @@ function App() {
           </div>
 
           <div className="hero-text-content reveal-left">
-            {/* Semnătura personală adăugată aici */}
             <span style={{ display: 'block', color: 'var(--neon-green)', fontWeight: '800', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '15px', fontSize: '0.9rem' }}>
               by Flavius Draghici
             </span>
@@ -251,6 +251,7 @@ function App() {
         </div>
       </section>
 
+      <CookieBanner />
       <Footer />
     </div>
   )
