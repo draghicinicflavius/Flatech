@@ -68,22 +68,20 @@ function App() {
       <section id="acasa" className="section hero-section">
         <div className="hero-container">
           
+          {/* Partea de sus pe mobil: Logo + Semnătura direct dedesubt */}
           <div className="hero-image-content reveal-right">
             <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo floating-logo" />
-            {/* SPAȚIU ADĂUGAT AICI PENTRU A ÎMPINGE TEXTUL MAI JOS */}
-            <div style={{ height: '40px', width: '100%' }}></div>
+            
+            {/* Aceasta apare doar pe mobil, fix sub logo */}
+            <span className="mobile-only-signature">
+              by Flavius Draghici
+            </span>
           </div>
 
           <div className="hero-text-content reveal-left">
-            <span style={{ 
-              display: 'block', 
-              color: 'var(--neon-green)', 
-              fontWeight: '800', 
-              letterSpacing: '2px', 
-              textTransform: 'uppercase', 
-              marginBottom: '20px', 
-              fontSize: '0.9rem' 
-            }}>
+            
+            {/* Aceasta apare doar pe desktop (clasic, deasupra titlului) */}
+            <span className="desktop-only-signature">
               by Flavius Draghici
             </span>
             
@@ -108,7 +106,7 @@ function App() {
         </div>
       </section>
 
-      {/* Restul secțiunilor rămân la fel */}
+      {/* Restul secțiunilor */}
       <section className="section stats-section">
         <div className="stats-grid">
           <div className="stat-box reveal-left">

@@ -792,3 +792,92 @@ html, body {
     text-align: center !important;
   }
 }
+/* Ascundem sau afișăm semnătura în funcție de ecran */
+.mobile-signature { display: none; }
+.desktop-signature { 
+  display: block; 
+  color: var(--neon-green); 
+  fontWeight: 800; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  margin-bottom: 20px; 
+  font-size: 0.9rem; 
+}
+
+/* =========================================
+   CONTROL MOBIL (Logo mijloc -> Semnătură -> Scroll pentru titlu)
+   ========================================= */
+@media (max-width: 991px) {
+  .hero-section {
+    min-height: 100vh !important; /* Facem prima pagină cât tot ecranul telefonului */
+    padding-top: 140px !important;
+    justify-content: center;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px !important;
+  }
+
+  .hero-image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .hero-logo {
+    width: 250px !important;
+    height: 250px !important;
+    margin: 0 auto;
+  }
+
+  /* Activăm semnătura sub logo pe mobil */
+  .mobile-signature {
+    display: block !important;
+    color: var(--neon-green);
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 25px;
+    font-size: 1rem;
+  }
+
+  .desktop-signature {
+    display: none !important; /* Ascundem semnătura dublă pe mobil */
+  }
+
+  .hero-text-content {
+    margin-top: 40px !important; /* Împinge titlul "Construim prezenta..." mai jos, necesitând scroll */
+  }
+}
+
+/* =========================================
+   CONTROL DESKTOP (Totul mai jos, fără statistici tăiate)
+   ========================================= */
+@media (min-width: 992px) {
+  .hero-section {
+    min-height: 100vh !important; /* Ocupă tot ecranul, forțând statisticile în jos */
+    padding-top: 180px !important; /* Spațiu mare de sus până în logo/titlu */
+    padding-bottom: 100px !important;
+  }
+
+  .hero-container {
+    max-width: 1150px !important;
+    gap: 60px !important;
+    align-items: center !important;
+  }
+
+  .hero-logo {
+    width: 320px !important;
+    height: 320px !important;
+  }
+
+  .hero-text-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+  }
+}
