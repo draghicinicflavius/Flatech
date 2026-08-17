@@ -192,7 +192,7 @@ html, body {
 }
 
 /* =========================================
-   HERO SECTION (Standard & Curat)
+   HERO SECTION
    ========================================= */
 .hero-section {
   position: relative;
@@ -202,7 +202,6 @@ html, body {
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   overflow: hidden;
-  padding-top: 140px; 
 }
 
 .hero-section::before {
@@ -247,14 +246,12 @@ html, body {
   align-items: center;
   max-width: 1400px; 
   width: 100%;
-  gap: 30px;
   z-index: 1;
 }
 
-/* Dimensiune logo standard pe mobil */
 .hero-logo {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: contain;
   background: white; 
   border-radius: 50%; 
@@ -714,7 +711,7 @@ html, body {
 .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
 
 /* =========================================
-   DESKTOP STYLING (Corectat & Aliniat)
+   DESKTOP STYLING (Totul împins mai jos, statistici la scroll)
    ========================================= */
 @media (min-width: 992px) {
   html { font-size: 14px; }
@@ -727,31 +724,37 @@ html, body {
     max-width: 1150px !important;
   }
 
-  .section { padding: 70px 20px !important; min-height: auto !important; }
-  .hero-section { padding-top: 140px !important; }
+  /* Forțăm prima pagină să ocupe tot ecranul, împingând statisticile jos */
+  .hero-section { 
+    min-height: 100vh !important; 
+    padding-top: 220px !important; 
+    padding-bottom: 120px !important; 
+  }
+
+  .section { padding: 80px 20px !important; }
+
   .hero-container { 
     flex-direction: row !important;
     justify-content: space-between !important;
     text-align: left !important;
-    gap: 40px !important; 
+    gap: 50px !important; 
+    align-items: center !important;
   }
   
   .hero-image-content {
     flex: 1 !important;
     display: flex !important;
     justify-content: center !important;
-    margin-top: 0 !important;
   }
 
   .hero-text-content {
     flex: 1.2 !important;
     padding-left: 20px !important;
-    margin-top: 0 !important;
     text-align: left !important;
   }
 
   .hero-logo { width: 320px !important; height: 320px !important; }
-  .hero-text-content h1 { font-size: 3rem; margin-bottom: 10px; }
+  .hero-text-content h1 { font-size: 3rem; margin-bottom: 15px; }
   .hero-badges { justify-content: flex-start; }
   .hero-buttons { justify-content: flex-start; }
   .hero-subtitle { margin: 15px 0 35px 0; max-width: 100%; text-align: left; }
@@ -763,11 +766,15 @@ html, body {
 }
 
 /* =========================================
-   MOBILE STYLING (Curat & Centrat)
+   MOBILE STYLING (Logo mijloc, semnătură dedesubt, titlu la scroll)
    ========================================= */
 @media (max-width: 991px) {
   .hero-section {
-    padding-top: 140px !important;
+    min-height: 100vh !important; /* Prima pagină ocupă tot ecranul telefonului */
+    padding-top: 130px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centrat vertical pe ecran */
   }
 
   .hero-container {
@@ -775,109 +782,26 @@ html, body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px !important;
-  }
-
-  .hero-image-content {
-    margin-top: 0 !important;
-  }
-
-  .hero-logo {
-    width: 220px !important; 
-    height: 220px !important;
-  }
-
-  .hero-text-content {
-    margin-top: 0 !important;
-    text-align: center !important;
-  }
-}
-/* Ascundem sau afișăm semnătura în funcție de ecran */
-.mobile-signature { display: none; }
-.desktop-signature { 
-  display: block; 
-  color: var(--neon-green); 
-  fontWeight: 800; 
-  letter-spacing: 2px; 
-  text-transform: uppercase; 
-  margin-bottom: 20px; 
-  font-size: 0.9rem; 
-}
-
-/* =========================================
-   CONTROL MOBIL (Logo mijloc -> Semnătură -> Scroll pentru titlu)
-   ========================================= */
-@media (max-width: 991px) {
-  .hero-section {
-    min-height: 100vh !important; /* Facem prima pagină cât tot ecranul telefonului */
-    padding-top: 140px !important;
-    justify-content: center;
-  }
-
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 40px !important;
+    gap: 0 !important;
   }
 
   .hero-image-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    width: 100%;
   }
 
+  /* Logo centrat perfect */
   .hero-logo {
-    width: 250px !important;
-    height: 250px !important;
+    width: 240px !important; 
+    height: 240px !important;
     margin: 0 auto;
   }
 
-  /* Activăm semnătura sub logo pe mobil */
-  .mobile-signature {
-    display: block !important;
-    color: var(--neon-green);
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-top: 25px;
-    font-size: 1rem;
-  }
-
-  .desktop-signature {
-    display: none !important; /* Ascundem semnătura dublă pe mobil */
-  }
-
+  /* Textul "Construim prezența..." împins mult mai jos, necesitând scroll */
   .hero-text-content {
-    margin-top: 40px !important; /* Împinge titlul "Construim prezenta..." mai jos, necesitând scroll */
-  }
-}
-
-/* =========================================
-   CONTROL DESKTOP (Totul mai jos, fără statistici tăiate)
-   ========================================= */
-@media (min-width: 992px) {
-  .hero-section {
-    min-height: 100vh !important; /* Ocupă tot ecranul, forțând statisticile în jos */
-    padding-top: 180px !important; /* Spațiu mare de sus până în logo/titlu */
-    padding-bottom: 100px !important;
-  }
-
-  .hero-container {
-    max-width: 1150px !important;
-    gap: 60px !important;
-    align-items: center !important;
-  }
-
-  .hero-logo {
-    width: 320px !important;
-    height: 320px !important;
-  }
-
-  .hero-text-content h1 {
-    font-size: 2.8rem;
-    margin-bottom: 15px;
+    margin-top: 70px !important; 
+    text-align: center !important;
   }
 }
