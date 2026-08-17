@@ -809,3 +809,12 @@ html, body {
     text-align: center !important;
   }
 }
+@media (min-width: 992px) {
+  .mobile-signature { display: none !important; }
+  .desktop-signature { display: block !important; }
+}
+
+@media (max-width: 991px) {
+  .mobile-signature { display: block !important; }
+  .desktop-signature { display: none !important; }
+}
