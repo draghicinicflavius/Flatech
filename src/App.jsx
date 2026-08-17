@@ -65,13 +65,11 @@ function App() {
         📞
       </a>
 
+      {/* PRIMUL ECRAN: DOAR SIGLA ȘI SEMNĂTURA */}
       <section id="acasa" className="section hero-section">
         <div className="hero-container">
-          
           <div className="hero-image-content reveal-right">
             <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo floating-logo" />
-            
-            {/* O singură semnătură, plasată curat sub logo */}
             <span style={{ 
               display: 'block', 
               color: 'var(--neon-green)', 
@@ -84,26 +82,28 @@ function App() {
               by Flavius Draghici
             </span>
           </div>
+        </div>
+      </section>
 
-          <div className="hero-text-content reveal-left">
-            <h1>Construim prezența ta online!</h1>
-            <p className="hero-subtitle">
-              Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
-              Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
-            </p>
+      {/* A DOUA PAGINĂ / SECȚIUNE: TITLUL ȘI RESTUL TEXTULUI */}
+      <section className="section hero-details-section">
+        <div className="hero-text-content reveal-left" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+          <h1>Construim prezența ta online!</h1>
+          <p className="hero-subtitle">
+            Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
+            Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
+          </p>
 
-            <div className="hero-badges">
-              <span>✅ Design Premium</span>
-              <span>✅ Optimizare SEO</span>
-              <span>✅ Suport Inclus</span>
-            </div>
-
-            <div className="hero-buttons">
-              <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
-              <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
-            </div>
+          <div className="hero-badges" style={{ justifyContent: 'center' }}>
+            <span>✅ Design Premium</span>
+            <span>✅ Optimizare SEO</span>
+            <span>✅ Suport Inclus</span>
           </div>
 
+          <div className="hero-buttons" style={{ justifyContent: 'center' }}>
+            <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
+            <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
+          </div>
         </div>
       </section>
 

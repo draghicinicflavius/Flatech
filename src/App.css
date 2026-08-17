@@ -765,46 +765,45 @@ html, body {
 }
 
 /* =========================================
-   MOBILE STYLING (Coborât și centrat perfect pe mijloc)
+   MOBILE STYLING (Prima pagină strict sigla + semnătura)
    ========================================= */
 @media (max-width: 991px) {
+  /* Prima pagină ocupă tot ecranul și centrează strict logo-ul și semnătura */
   .hero-section {
-    min-height: 100vh !important; 
-    padding-top: 180px !important; /* Mărim spațiul de sus ca să coboare totul sub meniul flotant */
-    padding-bottom: 60px !important;
+    min-height: 100vh !important;
     display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important; /* Centrare verticală pe mijlocul ecranului */
     align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
   }
 
   .hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 30px !important;
-    margin-top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
   }
 
   .hero-image-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 0 !important;
-  }
-
-  /* Logo centrat și aerisit */
-  .hero-logo {
-    width: 220px !important; 
-    height: 220px !important;
-    margin: 0 auto;
-  }
-
-  /* Textul plasat corect */
-  .hero-text-content {
-    margin-top: 10px !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .hero-logo {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  /* Ascundem secțiunea de text pe primul ecran pe mobil, sau o lăsăm să cadă pe ecranul următor */
+  .hero-details-section {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
