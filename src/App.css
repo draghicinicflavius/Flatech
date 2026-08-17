@@ -765,15 +765,17 @@ html, body {
 }
 
 /* =========================================
-   MOBILE STYLING (Logo mijloc, semnătură dedesubt, titlu la scroll)
+   MOBILE STYLING (Centrat perfect pe mijloc și aerisit)
    ========================================= */
 @media (max-width: 991px) {
   .hero-section {
-    min-height: 100vh !important; /* Prima pagină ocupă tot ecranul telefonului */
-    padding-top: 130px !important;
+    min-height: 100vh !important; 
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important; /* Centrat vertical pe ecran */
+    justify-content: center !important; /* Centrat vertical pe mijlocul ecranului */
+    align-items: center !important; /* Centrat orizontal */
   }
 
   .hero-container {
@@ -781,7 +783,8 @@ html, body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0 !important;
+    gap: 25px !important;
+    margin-top: 20px;
   }
 
   .hero-image-content {
@@ -791,16 +794,16 @@ html, body {
     width: 100%;
   }
 
-  /* Logo centrat perfect */
+  /* Logo mare și centrat */
   .hero-logo {
-    width: 240px !important; 
-    height: 240px !important;
+    width: 220px !important; 
+    height: 220px !important;
     margin: 0 auto;
   }
 
-  /* Textul "Construim prezența..." împins mult mai jos, necesitând scroll */
+  /* Textul și titlul centrate și distanțate frumos */
   .hero-text-content {
-    margin-top: 70px !important; 
+    margin-top: 10px !important; 
     text-align: center !important;
   }
 }
