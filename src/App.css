@@ -741,12 +741,8 @@ html, body {
    COMPACT DESKTOP MODE (Efectul de 80% Zoom)
    ========================================= */
 @media (min-width: 992px) {
-  /* 1. Reducem scara generală a fonturilor pe PC (tot ce e 'rem' se micșorează automat cu ~15%) */
-  html {
-    font-size: 14px; 
-  }
+  html { font-size: 14px; }
 
-  /* 2. Strângem containerele la o lățime mai elegantă (de la 1400px la 1150px) */
   .hero-container,
   .portfolio-grid-3,
   .featured-project,
@@ -755,63 +751,37 @@ html, body {
     max-width: 1150px !important;
   }
 
-  /* 3. Tăiem din spațiile uriașe (padding-uri) dintre secțiuni */
-  .section {
-    padding: 70px 20px !important;
-    min-height: auto !important;
-  }
+  .section { padding: 70px 20px !important; min-height: auto !important; }
+  .hero-section { padding-top: 130px !important; }
+  .hero-container { gap: 30px !important; }
   
-  .hero-section {
-    padding-top: 130px !important; /* Lăsăm loc doar pentru meniu */
-  }
-
-  .hero-container {
-    gap: 30px !important;
-  }
-
-  /* 4. Micșorăm logo-ul uriaș de pe prima pagină */
-  .hero-logo {
-    width: 280px !important;
-    height: 280px !important;
-  }
-
-  /* 5. Ajustăm fin titlul principal ca să stea bine cu noul spațiu */
-  .hero-text-content h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
+  .hero-logo { width: 280px !important; height: 280px !important; }
+  .hero-text-content h1 { font-size: 3rem; margin-bottom: 10px; }
+  
+  .desktop-clean-layout { max-width: 950px !important; margin: 0 auto !important; }
+  .desktop-img { max-width: 210px !important; }
+  .desktop-content { padding: 30px 40px !important; }
+  .desktop-image-wrapper { padding: 30px 15px !important; }
 }
 
 /* =========================================
-   COMPACTARE PROIECT SPECIAL (Doar pe PC)
+   OPTIMIZARE HERO PE MOBIL (Telefon)
    ========================================= */
-@media (min-width: 992px) {
-  /* Limităm lățimea întregului card negru ca să nu mai ocupe tot ecranul */
-  .desktop-clean-layout {
-    max-width: 950px !important;
-    margin: 0 auto !important;
+@media (max-width: 991px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px !important;
   }
 
-  /* Micșorăm clar telefonul din stânga (de la 280px la 210px) */
-  .desktop-img {
-    max-width: 210px !important; 
-  }
-
-  /* Tăiem din spațiile uriașe (padding) din interiorul cardului */
-  .desktop-content {
-    padding: 30px 40px !important;
-  }
-  
-  .desktop-image-wrapper {
-    padding: 30px 15px !important;
-  }
-}
-.hero-image-content {
-  margin-bottom: 30px; /* Adaugă acest spațiu pentru a împinge textul mai jos de logo */
-}
-
-@media (min-width: 992px) {
   .hero-image-content {
-    margin-bottom: 0; /* Pe desktop rămâne la fel, pentru că avem layout side-by-side */
+    margin-bottom: 20px !important; /* Spațiul sub logo */
+  }
+
+  .hero-logo {
+    width: 180px !important; /* Logo compact și elegant */
+    height: 180px !important;
   }
 }
