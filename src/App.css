@@ -765,45 +765,47 @@ html, body {
 }
 
 /* =========================================
-   MOBILE STYLING (Prima pagină strict sigla + semnătura)
+   MOBILE STYLING (Spatiu optimizat si natural)
    ========================================= */
 @media (max-width: 991px) {
-  /* Prima pagină ocupă tot ecranul și centrează strict logo-ul și semnătura */
+  /* 1. Scoatem min-height: 100vh ca să nu mai lase pagină goală forțată */
   .hero-section {
-    min-height: 100vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
+    min-height: auto !important; 
+    padding-top: 110px !important; /* Lăsăm exact loc sub meniul flotant */
+    padding-bottom: 40px !important;
   }
 
   .hero-container {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px !important;
   }
 
   .hero-image-content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 0 !important;
   }
 
+  /* Logo-ul rămâne mare și frumos */
   .hero-logo {
-    width: 250px !important;
-    height: 250px !important;
+    width: 220px !important; 
+    height: 220px !important;
+    margin: 0 auto;
   }
 
-  /* Ascundem secțiunea de text pe primul ecran pe mobil, sau o lăsăm să cadă pe ecranul următor */
+  /* 2. Reducem spațiul dintre secțiunea cu sigla și titlul de dedesubt */
   .hero-details-section {
-    min-height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
+    min-height: auto !important;
+    padding-top: 40px !important;
+  }
+
+  .hero-text-content {
+    margin-top: 10px !important; 
+    text-align: center !important;
   }
 }
