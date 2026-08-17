@@ -711,7 +711,7 @@ html, body {
 .portfolio-card:nth-child(3) { transition-delay: 0.3s; }
 
 /* =========================================
-   DESKTOP STYLING (Totul împins mai jos, statistici la scroll)
+   DESKTOP STYLING (Centrat perfect pe mijloc și aerisit)
    ========================================= */
 @media (min-width: 992px) {
   html { font-size: 14px; }
@@ -724,11 +724,14 @@ html, body {
     max-width: 1150px !important;
   }
 
-  /* Forțăm prima pagină să ocupe tot ecranul, împingând statisticile jos */
+  /* Forțăm secțiunea să ocupe tot ecranul și centrăm totul pe verticală pe mijloc */
   .hero-section { 
     min-height: 100vh !important; 
-    padding-top: 220px !important; 
-    padding-bottom: 120px !important; 
+    padding-top: 100px !important; /* Lăsăm loc de meniu */
+    padding-bottom: 50px !important;
+    display: flex !important;
+    align-items: center !important; /* Centrare pe mijloc vertical */
+    justify-content: center !important; /* Centrare pe mijloc orizontal */
   }
 
   .section { padding: 80px 20px !important; }
@@ -737,8 +740,9 @@ html, body {
     flex-direction: row !important;
     justify-content: space-between !important;
     text-align: left !important;
-    gap: 50px !important; 
+    gap: 60px !important; 
     align-items: center !important;
+    margin-top: 40px; /* Împinge totul un pic în jos de la meniu ca să fie pe mijlocul paginii */
   }
   
   .hero-image-content {
@@ -758,11 +762,6 @@ html, body {
   .hero-badges { justify-content: flex-start; }
   .hero-buttons { justify-content: flex-start; }
   .hero-subtitle { margin: 15px 0 35px 0; max-width: 100%; text-align: left; }
-  
-  .desktop-clean-layout { max-width: 950px !important; margin: 0 auto !important; }
-  .desktop-img { max-width: 210px !important; }
-  .desktop-content { padding: 30px 40px !important; }
-  .desktop-image-wrapper { padding: 30px 15px !important; }
 }
 
 /* =========================================
