@@ -106,18 +106,16 @@ function App() {
 
       {/* Restul conținutului (descrierea, badge-urile și butoanele) va cădea pe ecranul următor */}
       <section className="section hero-details-section" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="hero-badges" style={{ justifyContent: 'center', marginBottom: '30px' }}>
+            <span>✅ Design Premium</span>
+            <span>✅ Optimizare SEO</span>
+            <span>✅ Suport Inclus</span>
+          </div>
         <div style={{ maxWidth: '800px', textAlign: 'center', padding: '0 20px' }}>
           <p className="hero-subtitle" style={{ fontSize: '1.1rem', marginBottom: '30px' }}>
             Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
             Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
           </p>
-
-          <div className="hero-badges" style={{ justifyContent: 'center', marginBottom: '30px' }}>
-            <span>✅ Design Premium</span>
-            <span>✅ Optimizare SEO</span>
-            <span>✅ Suport Inclus</span>
-          </div>
-
           <div className="hero-buttons" style={{ justifyContent: 'center' }}>
             <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
             <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
