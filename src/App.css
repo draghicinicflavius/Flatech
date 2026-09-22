@@ -818,3 +818,14 @@ html, body {
   .mobile-signature { display: block !important; }
   .desktop-signature { display: none !important; }
 }
+@media (max-width: 991px) {
+  .hero-section {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 80px !important;
+    padding-bottom: 20px !important;
+  }
+}

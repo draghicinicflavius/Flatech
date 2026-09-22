@@ -77,8 +77,8 @@ function App() {
               fontWeight: '800', 
               letterSpacing: '2px', 
               textTransform: 'uppercase', 
-              marginTop: '20px', 
-              fontSize: '0.9rem' 
+              marginTop: '15px', 
+              fontSize: '0.85rem' 
             }}>
               by Flavius Draghici
             </span>
@@ -91,30 +91,37 @@ function App() {
               fontWeight: '800', 
               letterSpacing: '2px', 
               textTransform: 'uppercase', 
-              marginBottom: '20px', 
+              marginBottom: '15px', 
               fontSize: '0.9rem' 
             }}>
               by Flavius Draghici
             </span>
             
-            <h1>Construim prezența ta online!</h1>
-            <p className="hero-subtitle">
-              Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
-              Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
-            </p>
-
-            <div className="hero-badges">
-              <span>✅ Design Premium</span>
-              <span>✅ Optimizare SEO</span>
-              <span>✅ Suport Inclus</span>
-            </div>
-
-            <div className="hero-buttons">
-              <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
-              <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
-            </div>
+            {/* Titlul este inclus acum pe primul ecran */}
+            <h1 style={{ fontSize: '2.2rem', lineHeight: '1.2', margin: '15px 0' }}>Construim prezența ta online!</h1>
           </div>
 
+        </div>
+      </section>
+
+      {/* Restul conținutului (descrierea, badge-urile și butoanele) va cădea pe ecranul următor */}
+      <section className="section hero-details-section" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <div style={{ maxWidth: '800px', textAlign: 'center', padding: '0 20px' }}>
+          <p className="hero-subtitle" style={{ fontSize: '1.1rem', marginBottom: '30px' }}>
+            Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
+            Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
+          </p>
+
+          <div className="hero-badges" style={{ justifyContent: 'center', marginBottom: '30px' }}>
+            <span>✅ Design Premium</span>
+            <span>✅ Optimizare SEO</span>
+            <span>✅ Suport Inclus</span>
+          </div>
+
+          <div className="hero-buttons" style={{ justifyContent: 'center' }}>
+            <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
+            <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
+          </div>
         </div>
       </section>
 
