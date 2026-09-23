@@ -167,7 +167,7 @@ function App() {
             <img 
               src="/logo-firma.webp" 
               alt="FLATECH Logo - Flavius Draghici Web Design" 
-              className="hero-logo" 
+              className="hero-logo floating-logo" 
             />
           </div>
 
@@ -360,7 +360,7 @@ function App() {
 
       {/* CONTACT */}
       <section id="contact" className="section contact-section dark-mode-section">
-        <h2 className="reveal">Începe Proiectul Tău</h2>
+        <h2 className="reveal" style={{ color: 'var(--primary-accent)' }}>Începe Proiectul Tău</h2>
         <p className="subtitle reveal" style={{ color: 'var(--text-muted)' }}>
           Trimite-ne un mesaj sau un număr de telefon și te contactăm în cel mai scurt timp.
         </p>
