@@ -6,28 +6,25 @@ function TestimonialsSection() {
       name: "Top Acoperiș Montaj",
       category: "Servicii Construcții",
       text: "Flavius ne-a creat un site extrem de rapid și bine structurat. Apelurile de la clienți au crescut considerabil de la lansare!",
-      rating: 5,
-      avatar: "🏗️"
+      rating: 5
     },
     {
       name: "Cafeneaua Povestea Cafelei",
       category: "HoReCa / Meniu Digital",
       text: "Meniul digital QR creat de FLATECH este intuitiv și foarte apreciat de clienții noștri. Modificările de prețuri sau produse se fac super ușor.",
-      rating: 5,
-      avatar: "☕"
+      rating: 5
     },
     {
       name: "deGoicea Photo & Events",
       category: "Portofoliu Fotograf / Formație",
       text: "Atenția la detalii și viteza de execuție m-au impresionat. Portofoliul meu arată spectaculos pe orice telefon mobil.",
-      rating: 5,
-      avatar: "📸"
+      rating: 5
     }
   ];
 
   return (
     <section className="section testimonials-section" id="recenzii">
-      <h2 className="reveal">⭐ Ce Spun Clienții</h2>
+      <h2 className="reveal">Ce Spun Clienții</h2>
       <p className="subtitle reveal">
         Încrederea se construiește prin rezultate tangibile și servicii de calitate.
       </p>
@@ -35,7 +32,7 @@ function TestimonialsSection() {
       <div className="testimonials-grid reveal" style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        gap: '25px',
+        gap: '28px',
         width: '100%',
         maxWidth: '1160px',
         marginTop: '30px'
@@ -47,7 +44,7 @@ function TestimonialsSection() {
               background: 'var(--card-bg)',
               border: '1px solid var(--card-border)',
               borderRadius: '16px',
-              padding: '28px 22px',
+              padding: '28px 24px',
               textAlign: 'left',
               boxShadow: 'var(--shadow-sm)',
               display: 'flex',
@@ -57,19 +54,16 @@ function TestimonialsSection() {
             }}
           >
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '15px' }}>
-                <span style={{ fontSize: '2rem' }}>{rev.avatar}</span>
-                <div>
-                  <h3 style={{ fontSize: '1.1rem', margin: 0, fontWeight: '800', color: 'var(--text-dark)' }}>
-                    {rev.name}
-                  </h3>
-                  <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-                    {rev.category}
-                  </span>
-                </div>
+              <div style={{ marginBottom: '14px' }}>
+                <h3 style={{ fontSize: '1.1rem', margin: 0, fontWeight: '800', color: 'var(--text-dark)' }}>
+                  {rev.name}
+                </h3>
+                <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                  {rev.category}
+                </span>
               </div>
 
-              <div style={{ color: '#ffc107', fontSize: '1.1rem', marginBottom: '14px' }}>
+              <div style={{ color: '#ffc107', fontSize: '1rem', marginBottom: '14px' }}>
                 {'★'.repeat(rev.rating)}
               </div>
 

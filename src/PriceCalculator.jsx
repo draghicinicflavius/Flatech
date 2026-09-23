@@ -48,7 +48,7 @@ function PriceCalculator() {
 
   return (
     <section className="section calculator-section" id="calculator">
-      <h2 className="reveal">🧮 Configurator Interactiv de Preț</h2>
+      <h2 className="reveal">Configurator Interactiv de Preț</h2>
       <p className="subtitle reveal">
         Selectează opțiunile dorite și obține o estimare transparentă în câteva secunde.
       </p>
@@ -66,13 +66,13 @@ function PriceCalculator() {
         
         {/* Pasul 1: Selectare Pachet Bază */}
         <div style={{ textAlign: 'left', marginBottom: '30px' }}>
-          <h3 style={{ fontSize: '1.2rem', marginBottom: '15px', color: 'var(--text-dark)' }}>
+          <h3 style={{ fontSize: '1.15rem', marginBottom: '16px', color: 'var(--text-dark)' }}>
             1. Alege tipul de proiect:
           </h3>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '15px'
+            gap: '16px'
           }}>
             {Object.keys(basePrices).map((key) => {
               const plan = basePrices[key];
@@ -112,7 +112,7 @@ function PriceCalculator() {
 
         {/* Pasul 2: Selectare Opțiuni Extra */}
         <div style={{ textAlign: 'left', marginBottom: '30px' }}>
-          <h3 style={{ fontSize: '1.2rem', marginBottom: '15px', color: 'var(--text-dark)' }}>
+          <h3 style={{ fontSize: '1.15rem', marginBottom: '16px', color: 'var(--text-dark)' }}>
             2. Opțiuni și funcționalități suplimentare:
           </h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -126,7 +126,7 @@ function PriceCalculator() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    padding: '12px 18px',
+                    padding: '14px 18px',
                     borderRadius: '10px',
                     border: '1px solid var(--card-border)',
                     background: isChecked ? 'rgba(101, 196, 0, 0.05)' : 'transparent',
@@ -187,7 +187,7 @@ function PriceCalculator() {
             onClick={handleSelectPlan}
             className="glow-btn"
           >
-            💬 Solicită Ofertă pentru Această Configurație
+            Solicită Ofertă pentru Această Configurație
           </a>
         </div>
 

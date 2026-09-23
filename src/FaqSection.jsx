@@ -36,7 +36,7 @@ function FaqSection() {
 
   return (
     <section className="section faq-section" id="faq">
-      <h2 className="reveal">❓ Întrebări Frecvente</h2>
+      <h2 className="reveal">Întrebări Frecvente</h2>
       <p className="subtitle reveal">
         Tot ce trebuie să știi înainte de a începe un proiect cu FLATECH.
       </p>
@@ -82,7 +82,7 @@ function FaqSection() {
                   {faq.question}
                 </h3>
                 <span style={{
-                  fontSize: '1.3rem',
+                  fontSize: '1.2rem',
                   fontWeight: 'bold',
                   color: 'var(--primary-accent)',
                   transition: 'transform 0.3s',

@@ -154,12 +154,12 @@ function App() {
         </ul>
       </nav>
 
-      {/* BUTON APEL RAPID */}
+      {/* BUTON APEL RAPID FLOTANT */}
       <a href="tel:+40751094127" className="floating-call-btn" title="Sună acum la FLATECH!">
         📞
       </a>
 
-      {/* SECȚIUNEA HERO UNIFICATĂ */}
+      {/* PRIMUL ECRAN (HERO INTRO) - AERISIT, CU LOGO, TITLU, SUBTITLU SI NUMĂR TELEFON */}
       <section id="acasa" className="section hero-section">
         <div className="hero-container">
           
@@ -167,7 +167,7 @@ function App() {
             <img 
               src="/logo-firma.webp" 
               alt="FLATECH Logo - Flavius Draghici Web Design" 
-              className="hero-logo floating-logo" 
+              className="hero-logo" 
             />
           </div>
 
@@ -183,19 +183,26 @@ function App() {
               Fie că ai nevoie de un site de prezentare sau de un meniu digital QR, noi ne ocupăm de tot procesul tehnic.
             </p>
 
-            <div className="hero-badges">
-              <span>✅ Design Premium</span>
-              <span>⚡ Viteză Optimă</span>
-              <span>📱 100% Mobile Ready</span>
-              <span>🛠️ Suport Tehnic</span>
-            </div>
-
-            <div className="hero-buttons">
-              <a href="#calculator" className="glow-btn">🧮 Calculează Prețul</a>
-              <a href="#portofoliu" className="outline-btn">Vezi Portofoliul</a>
-            </div>
+            <a href="tel:+40751094127" className="hero-phone-box">
+              <span className="phone-icon">📞</span> 0751 094 127
+            </a>
           </div>
 
+        </div>
+      </section>
+
+      {/* DUPĂ SCROLL PE MOBIL - INSIGNE DE ÎNCREDERE ȘI BUTOANE DE ACȚIUNE */}
+      <section className="section hero-details-section">
+        <div className="hero-badges reveal">
+          <span><i className="bullet-dot"></i> Design Premium</span>
+          <span><i className="bullet-dot"></i> Viteză Optimă</span>
+          <span><i className="bullet-dot"></i> 100% Mobile Ready</span>
+          <span><i className="bullet-dot"></i> Suport Tehnic</span>
+        </div>
+
+        <div className="hero-buttons reveal">
+          <a href="#calculator" className="glow-btn">Calculează Prețul</a>
+          <a href="#portofoliu" className="outline-btn">Vezi Portofoliul</a>
         </div>
       </section>
 
@@ -253,7 +260,7 @@ function App() {
             <h3>Top Acoperiș Montaj</h3>
             <p>Site de prezentare servicii acoperișuri</p>
             <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">
-              🌐 Deschide Site Live ↗
+              Deschide Site Live ↗
             </a>
           </div>
           
@@ -267,7 +274,7 @@ function App() {
             <h3>Proiectul deGoicea</h3>
             <p>Portofoliu formație & servicii foto-video</p>
             <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">
-              🌐 Deschide Site Live ↗
+              Deschide Site Live ↗
             </a>
           </div>
 
@@ -281,7 +288,7 @@ function App() {
             <h3>Meniu Digital Cafenele</h3>
             <p>Meniu interactiv accesibil prin Cod QR</p>
             <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">
-              🌐 Deschide Meniu Live ↗
+              Deschide Meniu Live ↗
             </a>
           </div>
 
@@ -368,7 +375,7 @@ function App() {
               <option value="prezentare_business">Site Multi-Pagină Business (€450)</option>
               <option value="meniu_qr">Meniu Digital QR HoReCa (€149)</option>
               <option value="catalog_programari">Catalog Produse / Programări (€650+)</option>
-              <option value="altul">Alta idee sau proiect personalizat</option>
+              <option value="altul">Altă idee sau proiect personalizat</option>
             </select>
             <textarea 
               name="mesaj" 
@@ -376,27 +383,27 @@ function App() {
               rows="4" 
               aria-label="Descriere proiect"
             ></textarea>
-            <button type="submit" className="glow-btn submit-btn">🚀 Trimite Solicitarea</button>
+            <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
           </form>
 
           <div className="social-links reveal">
             <p style={{ margin: '0 0 10px 0', fontWeight: 'bold' }}>Contact rapid direct pe:</p>
             <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">
-              💬 WhatsApp
+              WhatsApp
             </a>
             <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">
-              📸 Instagram
+              Instagram
             </a>
             <a href="https://www.facebook.com/draghicinicolae.flavius?locale=ro_RO" target="_blank" rel="noreferrer" className="social-btn facebook">
-              📘 Facebook
+              Facebook
             </a>
 
             <p style={{ margin: '15px 0 10px 0', fontWeight: 'bold' }}>Portofoliu & Profil:</p>
             <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">
-              💼 LinkedIn
+              LinkedIn
             </a>
             <a href="https://github.com/draghicinicflavius" target="_blank" rel="noreferrer" className="social-btn github">
-              💻 GitHub
+              GitHub
             </a>
           </div>
         </div>
