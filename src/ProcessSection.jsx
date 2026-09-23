@@ -20,7 +20,7 @@ function ProcessSection() {
     {
       number: "04",
       title: "Lansare & Suport",
-      description: "Publicăm site-ul pe domeniul tău final, configurăm certificatul SSL și îți oferim asistență tehnică, te putem pune in leagtura si cu o echipa de marketing parteera pentru promovare."
+      description: "Publicăm site-ul pe domeniul tău final, configurăm certificatul SSL și îți oferim asistență tehnică, te putem pune în legătură cu o echipă de marketing parteneră pentru promovare."
     }
   ];
 
