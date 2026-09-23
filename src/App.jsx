@@ -362,35 +362,34 @@ function App() {
       <section id="contact" className="section contact-section dark-mode-section">
         <h2 className="reveal" style={{ color: 'var(--primary-accent)' }}>Începe Proiectul Tău</h2>
         <p className="subtitle reveal" style={{ color: 'var(--text-muted)' }}>
-          Trimite-ne un mesaj sau un număr de telefon și te contactăm în cel mai scurt timp.
+          Ai o idee de proiect sau vrei o estimare rapidă? Scrie-ne direct pe WhatsApp sau dă-ne un telefon.
         </p>
         
         <div className="contact-wrapper">
-          <form action="https://formspree.io/f/xgopezzd" method="POST" className="glass-form reveal">
-            <input type="text" name="nume" placeholder="Numele tău complet" required aria-label="Numele tău" />
-            <input type="tel" name="telefon" placeholder="Numărul de telefon" required aria-label="Numărul de telefon" />
-            <select name="subiect" required defaultValue="" aria-label="Tipul de site dorit">
-              <option value="" disabled>Ce tip de site dorești?</option>
-              <option value="prezentare_landing">Landing Page (1 Pagină - €199)</option>
-              <option value="prezentare_business">Site Multi-Pagină Business (€450)</option>
-              <option value="meniu_qr">Meniu Digital QR HoReCa (€149)</option>
-              <option value="catalog_programari">Catalog Produse / Programări (€650+)</option>
-              <option value="altul">Altă idee sau proiect personalizat</option>
-            </select>
-            <textarea 
-              name="mesaj" 
-              placeholder="Scurtă descriere a proiectului tău (opțional)" 
-              rows="4" 
-              aria-label="Descriere proiect"
-            ></textarea>
-            <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
-          </form>
+          <div className="whatsapp-box glass-form reveal" style={{ textAlign: 'center', alignItems: 'center' }}>
+            <h3 style={{ fontSize: '1.4rem', margin: '0 0 10px', color: 'var(--text-dark)' }}>
+              Discută Direct pe WhatsApp
+            </h3>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: '0 0 20px' }}>
+              Apasă pe butonul de mai jos și deschide o conversație directă. Îți răspundem rapid cu detalii și opțiuni pentru proiectul tău.
+            </p>
+
+            <a 
+              href="https://wa.me/40751094127?text=Salut%20Flavius!%20Am%20v%C4%83zut%20site-ul%20FLATECH%20%C8%99i%20a%C8%99%20dori%20mai%20multe%20detalii%20despre%20un%20proiect." 
+              target="_blank" 
+              rel="noreferrer" 
+              className="whatsapp-primary-btn"
+            >
+              Scrie-ne pe WhatsApp
+            </a>
+
+            <div style={{ marginTop: '18px', fontSize: '0.92rem', color: 'var(--text-muted)' }}>
+              Sau sună-ne direct la: <a href="tel:+40751094127" style={{ color: 'var(--primary-accent)', fontWeight: 'bold', textDecoration: 'none' }}>0751 094 127</a>
+            </div>
+          </div>
 
           <div className="social-links reveal">
-            <p style={{ margin: '0 0 10px 0', fontWeight: 'bold' }}>Contact rapid direct pe:</p>
-            <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">
-              WhatsApp
-            </a>
+            <p style={{ margin: '0 0 10px 0', fontWeight: 'bold' }}>Rețele Sociale:</p>
             <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">
               Instagram
             </a>
