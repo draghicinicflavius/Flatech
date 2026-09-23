@@ -6,7 +6,7 @@ function FaqSection() {
   const faqs = [
     {
       question: "Cât durează crearea unui site de prezentare sau meniu digital?",
-      answer: "În general, un Landing Page sau un Meniu Digital este gata în 2-4 zile lucrătoare. Pentru un site multi-pagină sau catalog de produse, durata standard este de 4-7 zile lucrătoare din momentul în care avem materialele necesare."
+      answer: "În general, un Landing Page sau un Meniu Digital este gata în 7-8 zile lucrătoare. Pentru un site multi-pagină sau catalog de produse, durata standard este de 14 zile lucrătoare din momentul în care avem materialele necesare."
     },
     {
       question: "Ce materiale trebuie să pregătesc înainte de a începe?",
