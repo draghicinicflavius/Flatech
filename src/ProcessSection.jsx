@@ -15,12 +15,12 @@ function ProcessSection() {
     {
       number: "03",
       title: "Dezvoltare & Optimizare",
-      description: "Scriem un cod curat, optimizăm imaginile WebP și asigurăm o viteză impecabilă de încărcare pe orice ecran."
+      description: "Scriem un cod curat, optimizăm imaginile și asigurăm o viteză impecabilă de încărcare pe orice ecran."
     },
     {
       number: "04",
       title: "Lansare & Suport",
-      description: "Publicăm site-ul pe domeniul tău final, configurăm certificatul SSL și îți oferim asistență tehnică."
+      description: "Publicăm site-ul pe domeniul tău final, configurăm certificatul SSL și îți oferim asistență tehnică, te putem pune in leagtura si cu o echipa de marketing parteera pentru promovare."
     }
   ];
 

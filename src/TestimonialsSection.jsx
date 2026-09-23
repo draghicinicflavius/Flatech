@@ -11,13 +11,13 @@ function TestimonialsSection() {
     {
       name: "Cafeneaua Povestea Cafelei",
       category: "HoReCa / Meniu Digital",
-      text: "Meniul digital QR creat de FLATECH este intuitiv și foarte apreciat de clienții noștri. Modificările de prețuri sau produse se fac super ușor.",
+      text: "Meniul digital QR creat de Flavius este intuitiv și foarte apreciat de clienții noștri. Are un design cald, este intuitiv pentru orice client.",
       rating: 5
     },
     {
-      name: "deGoicea Photo & Events",
+      name: "deGoicea Phototography",
       category: "Portofoliu Fotograf / Formație",
-      text: "Atenția la detalii și viteza de execuție m-au impresionat. Portofoliul meu arată spectaculos pe orice telefon mobil.",
+      text: "Atenția la detalii și viteza de execuție m-au impresionat, fiind atat de multe poze pe site. Portofoliul meu arată spectaculos pe orice telefon mobil.",
       rating: 5
     }
   ];
