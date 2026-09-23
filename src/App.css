@@ -722,7 +722,7 @@ html, body {
   color: var(--text-light);
 }
 
-.dark-mode-section h2 {
+.section.dark-mode-section h2 {
   color: var(--primary-accent);
 }
 
