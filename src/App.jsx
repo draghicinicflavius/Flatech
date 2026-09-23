@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Footer from './Footer'
-import CookieBanner from './CookieBanner'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Footer from './Footer';
+import CookieBanner from './CookieBanner';
+import PriceCalculator from './PriceCalculator';
+import ProcessSection from './ProcessSection';
+import FaqSection from './FaqSection';
+import TestimonialsSection from './TestimonialsSection';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeSection, setActiveSection] = useState('acasa');
 
   useEffect(() => {
     if (isDarkMode) {
@@ -15,13 +20,14 @@ function App() {
     }
   }, [isDarkMode]);
 
+  // Scroll Reveal Animations
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('active'); 
+          entry.target.classList.add('active');
         } else {
-          entry.target.classList.remove('active'); 
+          entry.target.classList.remove('active');
         }
       });
     }, { threshold: 0.1 });
@@ -32,9 +38,33 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
+  // Scrollspy pentru meniu activ
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['acasa', 'proces', 'portofoliu', 'preturi', 'calculator', 'recenzii', 'faq', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const top = element.offsetTop;
+          const height = element.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="app-container">
       
+      {/* NAVBAR */}
       <nav className="navbar">
         <div className="nav-logo-text">FLATECH</div>
         
@@ -42,87 +72,137 @@ function App() {
           <button 
             className="theme-toggle" 
             onClick={() => setIsDarkMode(!isDarkMode)}
-            title="Schimbă tema"
-            style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', padding: 0 }}
+            title={isDarkMode ? "Comutare pe Tema Luminoasă" : "Comutare pe Tema Întunecată"}
+            aria-label="Schimbă tema"
           >
             {isDarkMode ? '☀️' : '🌙'}
           </button>
 
-          <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div 
+            className="hamburger" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Meniu Navigație"
+          >
             {isMenuOpen ? '✖' : '☰'}
           </div>
         </div>
 
         <ul className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
-          <li><a href="#acasa" onClick={() => setIsMenuOpen(false)}>Acasă</a></li>
-          <li><a href="#portofoliu" onClick={() => setIsMenuOpen(false)}>Portofoliu</a></li>
-          <li><a href="#preturi" onClick={() => setIsMenuOpen(false)}>Prețuri</a></li>
-          <li><a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a></li>
+          <li>
+            <a 
+              href="#acasa" 
+              className={activeSection === 'acasa' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Acasă
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#proces" 
+              className={activeSection === 'proces' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Cum Lucrăm
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#portofoliu" 
+              className={activeSection === 'portofoliu' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Portofoliu
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#preturi" 
+              className={activeSection === 'preturi' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Prețuri
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#calculator" 
+              className={activeSection === 'calculator' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Configurator
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#faq" 
+              className={activeSection === 'faq' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              className={activeSection === 'contact' ? 'active-link' : ''} 
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
 
-      <a href="tel:+40751094127" className="floating-call-btn" title="Sună-mă acum!">
+      {/* BUTON APEL RAPID */}
+      <a href="tel:+40751094127" className="floating-call-btn" title="Sună acum la FLATECH!">
         📞
       </a>
 
-      {/* SECȚIUNEA ACASĂ (Side-by-side pe Desktop, Curată pe Mobil) */}
+      {/* SECȚIUNEA HERO UNIFICATĂ */}
       <section id="acasa" className="section hero-section">
         <div className="hero-container">
           
           <div className="hero-image-content reveal-right">
-            <img src="/logo-firma.jpeg" alt="FLATECH Logo" className="hero-logo floating-logo" />
-            <span className="mobile-signature" style={{ 
-              display: 'block', 
-              color: 'var(--neon-green)', 
-              fontWeight: '800', 
-              letterSpacing: '2px', 
-              textTransform: 'uppercase', 
-              marginTop: '15px', 
-              fontSize: '0.85rem' 
-            }}>
-              by Flavius Draghici
-            </span>
+            <img 
+              src="/logo-firma.webp" 
+              alt="FLATECH Logo - Flavius Draghici Web Design" 
+              className="hero-logo floating-logo" 
+            />
           </div>
 
           <div className="hero-text-content reveal-left">
-            <span className="desktop-signature" style={{ 
-              display: 'block', 
-              color: 'var(--neon-green)', 
-              fontWeight: '800', 
-              letterSpacing: '2px', 
-              textTransform: 'uppercase', 
-              marginBottom: '15px', 
-              fontSize: '0.9rem' 
-            }}>
-              by Flavius Draghici
-            </span>
+            <span className="author-tag">BY FLAVIUS DRAGHICI</span>
             
-            {/* Titlul este inclus acum pe primul ecran */}
-            <h1 style={{ fontSize: '2.2rem', lineHeight: '1.2', margin: '15px 0' }}>Construim prezența ta online!</h1>
+            <h1 className="hero-title">
+              Construim prezența ta <span className="hero-title-highlight">online!</span>
+            </h1>
+            
+            <p className="hero-subtitle">
+              Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. 
+              Fie că ai nevoie de un site de prezentare sau de un meniu digital QR, noi ne ocupăm de tot procesul tehnic.
+            </p>
+
+            <div className="hero-badges">
+              <span>✅ Design Premium</span>
+              <span>⚡ Viteză Optimă</span>
+              <span>📱 100% Mobile Ready</span>
+              <span>🛠️ Suport Tehnic</span>
+            </div>
+
+            <div className="hero-buttons">
+              <a href="#calculator" className="glow-btn">🧮 Calculează Prețul</a>
+              <a href="#portofoliu" className="outline-btn">Vezi Portofoliul</a>
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* Restul conținutului (descrierea, badge-urile și butoanele) va cădea pe ecranul următor */}
-      <section className="section hero-details-section" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <div className="hero-badges" style={{ justifyContent: 'center', marginBottom: '30px' }}>
-            <span>✅ Design Premium</span>
-            <span>✅ Optimizare SEO</span>
-            <span>✅ Suport Inclus</span>
-          </div>
-        <div style={{ maxWidth: '800px', textAlign: 'center', padding: '0 20px' }}>
-          <p className="hero-subtitle" style={{ fontSize: '1.1rem', marginBottom: '30px' }}>
-            Transformăm ideile în site-uri rapide, moderne și gata să atragă clienți. <br/>
-            Fie că ai nevoie de un site de prezentare sau de un meniu digital, noi ne ocupăm de absolut tot.
-          </p>
-          <div className="hero-buttons" style={{ justifyContent: 'center' }}>
-            <a href="#portofoliu" className="glow-btn">Vezi ce am lucrat</a>
-            <a href="#preturi" className="outline-btn">Pachete și Prețuri</a>
-          </div>
-        </div>
-      </section>
+      {/* SECȚIUNEA CUM LUCRĂM */}
+      <ProcessSection />
 
+      {/* STATISTICI / IMPACT */}
       <section className="section stats-section">
         <div className="stats-grid">
           
@@ -141,7 +221,7 @@ function App() {
               <path className="circle-fill fill-85" d="M50,10 a 40,40 0 1,0 0,80 a 40,40 0 1,0 0,-80" />
               <text x="50" y="55" className="percentage">35+</text>
             </svg>
-            <h3>Proiecte Finalizate</h3>
+            <h3>Proiecte Livrate</h3>
           </div>
 
           <div className="stat-box reveal-right">
@@ -156,122 +236,168 @@ function App() {
         </div>
       </section>
 
+      {/* PORTOFOLIU */}
       <section id="portofoliu" className="section portfolio-section">
-        <h2 className="reveal">Proiecte Finalizate</h2>
-        <p className="subtitle reveal">Nu vindem doar idei, iată câteva din site-urile noastre live:</p>
+        <h2 className="reveal">Proiecte Live</h2>
+        <p className="subtitle reveal">Iată câteva dintre site-urile reale dezvoltate și optimizate pentru clienții noștri:</p>
         
         <div className="portfolio-grid-3">
           
           <div className="portfolio-card reveal-left">
-            <img src="/topmontajacoperis.png" alt="Site Top Acoperis" className="portfolio-img" />
+            <img 
+              src="/topmontajacoperis.webp" 
+              alt="Site Top Acoperis Montaj Servicii Construcții" 
+              className="portfolio-img" 
+              loading="lazy"
+            />
             <h3>Top Acoperiș Montaj</h3>
-            <p>Site de prezentare servicii</p>
-            <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
+            <p>Site de prezentare servicii acoperișuri</p>
+            <a href="https://www.topacoperismontaj.ro" target="_blank" rel="noreferrer" className="live-link">
+              🌐 Deschide Site Live ↗
+            </a>
           </div>
           
           <div className="portfolio-card reveal">
-            <img src="/site2.png" alt="Site 2" className="portfolio-img" />
+            <img 
+              src="/site2.webp" 
+              alt="Portofoliu Fotografi si Formatii deGoicea" 
+              className="portfolio-img" 
+              loading="lazy"
+            />
             <h3>Proiectul deGoicea</h3>
-            <p>Portofoliu fotografi/formatii</p>
-            <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
+            <p>Portofoliu formație & servicii foto-video</p>
+            <a href="https://www.degoicea.ro" target="_blank" rel="noreferrer" className="live-link">
+              🌐 Deschide Site Live ↗
+            </a>
           </div>
 
           <div className="portfolio-card reveal-right">
-            <img src="/site3.png" alt="Site 3" className="portfolio-img" />
+            <img 
+              src="/site3.webp" 
+              alt="Meniu Digital Cafenele Povestea Cafelei QR" 
+              className="portfolio-img" 
+              loading="lazy"
+            />
             <h3>Meniu Digital Cafenele</h3>
-            <p>Meniu / Cod QR</p>
-            <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">🌐 Deschide Live</a>
+            <p>Meniu interactiv accesibil prin Cod QR</p>
+            <a href="https://meniu-povestea-cafelei.vercel.app/" target="_blank" rel="noreferrer" className="live-link">
+              🌐 Deschide Meniu Live ↗
+            </a>
           </div>
 
         </div>
       </section>
 
+      {/* PACHETE SI PREȚURI */}
       <section id="preturi" className="section pricing-section">
         <h2 className="reveal">Pachete Web Design</h2>
-        <p className="subtitle reveal">Transparență totală. Alege pachetul potrivit pentru stadiul afacerii tale.</p>
+        <p className="subtitle reveal">Transparență totală. Alege pachetul potrivit pentru afacerea ta.</p>
         
         <div className="pricing-grid reveal">
           <div className="pricing-card">
-            <h3>Pachetul Start</h3>
-            <div className="price"><span>€</span>199</div>
-            <p className="price-desc">Perfect pentru o prezență rapidă online.</p>
-            <ul>
-              <li>Landing Page (1 Pagină lungă)</li>
-              <li>Design Modern & Responsive</li>
-              <li>Formular Contact / WhatsApp</li>
-              <li>Optimizare viteză (WebP)</li>
-            </ul>
+            <div>
+              <h3>Pachetul Start</h3>
+              <div className="price"><span>€</span>199</div>
+              <p className="price-desc">Perfect pentru o prezență rapidă și elegantă online.</p>
+              <ul>
+                <li>Landing Page (1 Pagină structurată)</li>
+                <li>Design Modern & Fully Responsive</li>
+                <li>Formular Contact + WhatsApp Direct</li>
+                <li>Optimizare viteză & imagini WebP</li>
+              </ul>
+            </div>
             <a href="#contact" className="outline-btn small-btn">Alege Pachetul</a>
           </div>
 
           <div className="pricing-card popular">
-            <div className="popular-badge">Cel Mai Vândut</div>
-            <h3>Pachetul Business</h3>
-            <div className="price"><span>€</span>450</div>
-            <p className="price-desc">Ideal pentru firme, clinici și profesioniști.</p>
-            <ul>
-              <li>Site Multi-Pagină (Acasă, Despre, Servicii)</li>
-              <li>Secțiune Portofoliu / Galerie</li>
-              <li>Optimizare SEO de bază</li>
-              <li>Integrare Google Analytics</li>
-            </ul>
+            <div className="popular-badge">Cel Mai Solicitat</div>
+            <div>
+              <h3>Pachetul Business</h3>
+              <div className="price"><span>€</span>450</div>
+              <p className="price-desc">Ideal pentru firme, clinici, servicii și profesioniști.</p>
+              <ul>
+                <li>Site Multi-Pagină (Acasă, Despre, Servicii)</li>
+                <li>Secțiune Portofoliu / Galerie Foto</li>
+                <li>Integrare Formular Contact & Hărți Google</li>
+                <li>Certificat SSL & Optimizare Mobil</li>
+              </ul>
+            </div>
             <a href="#contact" className="glow-btn small-btn">Alege Pachetul</a>
           </div>
 
           <div className="pricing-card">
-            <h3>Pachet Premium</h3>
-            <div className="price"><span>€</span>650<span>+</span></div>
-            <p className="price-desc">Pentru afaceri cu nevoi specifice de organizare.</p>
-            <ul>
-              <li>Catalog de produse (Fără plată)</li>
-              <li>Sistem integrat de Programări</li>
-              <li>Panou de administrare conținut</li>
-              <li>Optimizare tehnică și SEO</li>
-            </ul>
+            <div>
+              <h3>Pachet Premium</h3>
+              <div className="price"><span>€</span>650<span>+</span></div>
+              <p className="price-desc">Pentru afaceri cu nevoi specifice de organizare și prezentare.</p>
+              <ul>
+                <li>Catalog produse / Servicii detaliate</li>
+                <li>Sistem integrat de solicitări programări</li>
+                <li>Panou administrare conținut</li>
+                <li>Optimizare tehnică avansată</li>
+              </ul>
+            </div>
             <a href="#contact" className="outline-btn small-btn">Cere Ofertă</a>
-          </div>
-        </div>
-
-        <div className="ads-banner reveal">
-          <div className="ads-content">
-            <h3 style={{ color: "var(--neon-green)" }}>🚀 Vrei clienți din prima zi?</h3>
-            <p>Nu aștepta ca lumea să te găsească din întâmplare. Îți configurez o campanie profesională de <strong>Google Ads</strong>, gata să îți aducă telefoane și mesaje imediat.</p>
-          </div>
-          <div className="ads-price-box">
-            <span className="ads-tag">Setup Campanie</span>
-            <span className="ads-cost">50 €</span>
-            <span className="ads-note">*plată unică, fără abonament lunar</span>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="section contact-section dark-mode">
+      {/* CONFIGURATOR INTERACTIV DE PREȚ */}
+      <PriceCalculator />
+
+      {/* RECENZII / TESTIMONIALE */}
+      <TestimonialsSection />
+
+      {/* FAQ / ÎNTREBĂRI FRECVENTE */}
+      <FaqSection />
+
+      {/* CONTACT */}
+      <section id="contact" className="section contact-section dark-mode-section">
         <h2 className="reveal">Începe Proiectul Tău</h2>
-        <p className="reveal">Lasă-ne datele și te sunăm noi cât mai curând.</p>
+        <p className="subtitle reveal" style={{ color: 'var(--text-muted)' }}>
+          Trimite-ne un mesaj sau un număr de telefon și te contactăm în cel mai scurt timp.
+        </p>
         
         <div className="contact-wrapper">
-          <form action="https://formspree.io/f/xgopezzd" method="POST" className="contact-form glass-form reveal">
-            <input type="text" name="nume" placeholder="Numele tău" required />
-            <input type="tel" name="telefon" placeholder="Numărul de telefon" required />
-            <select name="subiect" required defaultValue="">
+          <form action="https://formspree.io/f/xgopezzd" method="POST" className="glass-form reveal">
+            <input type="text" name="nume" placeholder="Numele tău complet" required aria-label="Numele tău" />
+            <input type="tel" name="telefon" placeholder="Numărul de telefon" required aria-label="Numărul de telefon" />
+            <select name="subiect" required defaultValue="" aria-label="Tipul de site dorit">
               <option value="" disabled>Ce tip de site dorești?</option>
-              <option value="prezentare">Site de Prezentare (Firme/Servicii)</option>
-              <option value="meniu">Meniu Digital (Horeca)</option>
-              <option value="catalog_programari">Catalog Produse / Programări</option>
-              <option value="altul">Am altă idee</option>
+              <option value="prezentare_landing">Landing Page (1 Pagină - €199)</option>
+              <option value="prezentare_business">Site Multi-Pagină Business (€450)</option>
+              <option value="meniu_qr">Meniu Digital QR HoReCa (€149)</option>
+              <option value="catalog_programari">Catalog Produse / Programări (€650+)</option>
+              <option value="altul">Alta idee sau proiect personalizat</option>
             </select>
-            <button type="submit" className="glow-btn submit-btn">Trimite Solicitarea</button>
+            <textarea 
+              name="mesaj" 
+              placeholder="Scurtă descriere a proiectului tău (opțional)" 
+              rows="4" 
+              aria-label="Descriere proiect"
+            ></textarea>
+            <button type="submit" className="glow-btn submit-btn">🚀 Trimite Solicitarea</button>
           </form>
 
           <div className="social-links reveal">
-            <p>Sau scrie-ne direct pe:</p>
-            <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">💬 WhatsApp</a>
-            <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">📸 Instagram</a>
-            <a href="https://www.facebook.com/draghicinicolae.flavius?locale=ro_RO" target="_blank" rel="noreferrer" className="social-btn facebook">📘 Facebook</a>
+            <p style={{ margin: '0 0 10px 0', fontWeight: 'bold' }}>Contact rapid direct pe:</p>
+            <a href="https://wa.me/40751094127" target="_blank" rel="noreferrer" className="social-btn whatsapp">
+              💬 WhatsApp
+            </a>
+            <a href="https://www.instagram.com/draghiciflavius01/" target="_blank" rel="noreferrer" className="social-btn instagram">
+              📸 Instagram
+            </a>
+            <a href="https://www.facebook.com/draghicinicolae.flavius?locale=ro_RO" target="_blank" rel="noreferrer" className="social-btn facebook">
+              📘 Facebook
+            </a>
 
-            <p>Verifică proiectele mele și pe:</p>
-            <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">💼 LinkedIn</a>
-            <a href="https://github.com/draghicinicflavius" target="_blank" rel="noreferrer" className="social-btn github">💻 GitHub</a>
+            <p style={{ margin: '15px 0 10px 0', fontWeight: 'bold' }}>Portofoliu & Profil:</p>
+            <a href="https://www.linkedin.com/in/dr%C4%83ghici-flavius-2b0306393/" target="_blank" rel="noreferrer" className="social-btn linkedin">
+              💼 LinkedIn
+            </a>
+            <a href="https://github.com/draghicinicflavius" target="_blank" rel="noreferrer" className="social-btn github">
+              💻 GitHub
+            </a>
           </div>
         </div>
       </section>
@@ -279,7 +405,7 @@ function App() {
       <CookieBanner />
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
