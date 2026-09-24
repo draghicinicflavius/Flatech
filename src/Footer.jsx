@@ -58,10 +58,10 @@ function Footer() {
             <h4 style={{ color: '#99ff00', marginBottom: '15px' }}>Protecția Consumatorului</h4>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', alignItems: 'center', flexWrap: 'wrap' }}>
               <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">
-                <img src="/anpc-sal.png" alt="SAL ANPC" style={{ height: '40px', maxWidth: '120px', objectFit: 'contain', display: 'block' }} />
+                <img src="/anpc-sal.webp" alt="SAL ANPC" width="500" height="124" loading="lazy" style={{ height: '40px', maxWidth: '120px', objectFit: 'contain', display: 'block' }} />
               </a>
               <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
-                <img src="/anpc-sol.png" alt="SOL ANPC" style={{ height: '40px', maxWidth: '120px', objectFit: 'contain', display: 'block' }} />
+                <img src="/anpc-sol.webp" alt="SOL ANPC" width="500" height="124" loading="lazy" style={{ height: '40px', maxWidth: '120px', objectFit: 'contain', display: 'block' }} />
               </a>
             </div>
           </div>

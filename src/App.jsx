@@ -168,6 +168,9 @@ function App() {
               src="/logo-firma.webp" 
               alt="FLATECH Logo - Flavius Draghici Web Design" 
               className="hero-logo floating-logo" 
+              width="600"
+              height="600"
+              fetchPriority="high"
             />
           </div>
 
@@ -255,6 +258,8 @@ function App() {
               src="/topmontajacoperis.webp" 
               alt="Site Top Acoperis Montaj Servicii Construcții" 
               className="portfolio-img" 
+              width="1200"
+              height="583"
               loading="lazy"
             />
             <h3>Top Acoperiș Montaj</h3>
@@ -269,6 +274,8 @@ function App() {
               src="/site2.webp" 
               alt="Portofoliu Fotografi si Formatii deGoicea" 
               className="portfolio-img" 
+              width="1200"
+              height="584"
               loading="lazy"
             />
             <h3>Proiectul deGoicea</h3>
@@ -283,6 +290,8 @@ function App() {
               src="/site3.webp" 
               alt="Meniu Digital Cafenele Povestea Cafelei QR" 
               className="portfolio-img" 
+              width="1200"
+              height="575"
               loading="lazy"
             />
             <h3>Meniu Digital Cafenele</h3>
