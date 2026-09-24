@@ -1,13 +1,11 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-
-// Lazy loading componentelor below-the-fold pentru optimizare performanță / TBT
-const Footer = lazy(() => import('./Footer'));
-const CookieBanner = lazy(() => import('./CookieBanner'));
-const PriceCalculator = lazy(() => import('./PriceCalculator'));
-const ProcessSection = lazy(() => import('./ProcessSection'));
-const FaqSection = lazy(() => import('./FaqSection'));
-const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
+import Footer from './Footer';
+import CookieBanner from './CookieBanner';
+import PriceCalculator from './PriceCalculator';
+import ProcessSection from './ProcessSection';
+import FaqSection from './FaqSection';
+import TestimonialsSection from './TestimonialsSection';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +38,7 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Scrollspy pentru meniu activ cu ascultător pasiv (passive listener pe mobil)
+  // Scrollspy pentru meniu activ
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['acasa', 'proces', 'portofoliu', 'preturi', 'calculator', 'recenzii', 'faq', 'contact'];
@@ -59,14 +57,14 @@ function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="app-container">
       
-      {/* NAVBAR - Sincron (above-the-fold) */}
+      {/* NAVBAR */}
       <nav className="navbar">
         <div className="nav-logo-text">FLATECH</div>
         
@@ -161,7 +159,7 @@ function App() {
         📞
       </a>
 
-      {/* PRIMUL ECRAN (HERO INTRO) - Sincron (above-the-fold) */}
+      {/* PRIMUL ECRAN (HERO INTRO) - AERISIT, CU LOGO, TITLU, SUBTITLU SI NUMĂR TELEFON */}
       <section id="acasa" className="section hero-section">
         <div className="hero-container">
           
@@ -211,10 +209,8 @@ function App() {
         </div>
       </section>
 
-      {/* SECȚIUNEA CUM LUCRĂM - Lazy Loaded */}
-      <Suspense fallback={null}>
-        <ProcessSection />
-      </Suspense>
+      {/* SECȚIUNEA CUM LUCRĂM */}
+      <ProcessSection />
 
       {/* STATISTICI / IMPACT */}
       <section className="section stats-section">
@@ -362,20 +358,14 @@ function App() {
         </div>
       </section>
 
-      {/* CONFIGURATOR INTERACTIV DE PREȚ - Lazy Loaded */}
-      <Suspense fallback={null}>
-        <PriceCalculator />
-      </Suspense>
+      {/* CONFIGURATOR INTERACTIV DE PREȚ */}
+      <PriceCalculator />
 
-      {/* RECENZII / TESTIMONIALE - Lazy Loaded */}
-      <Suspense fallback={null}>
-        <TestimonialsSection />
-      </Suspense>
+      {/* RECENZII / TESTIMONIALE */}
+      <TestimonialsSection />
 
-      {/* FAQ / ÎNTREBĂRI FRECVENTE - Lazy Loaded */}
-      <Suspense fallback={null}>
-        <FaqSection />
-      </Suspense>
+      {/* FAQ / ÎNTREBĂRI FRECVENTE */}
+      <FaqSection />
 
       {/* CONTACT */}
       <section id="contact" className="section contact-section dark-mode-section">
@@ -427,11 +417,8 @@ function App() {
         </div>
       </section>
 
-      {/* COOKIE BANNER & FOOTER - Lazy Loaded */}
-      <Suspense fallback={null}>
-        <CookieBanner />
-        <Footer />
-      </Suspense>
+      <CookieBanner />
+      <Footer />
     </div>
   );
 }
